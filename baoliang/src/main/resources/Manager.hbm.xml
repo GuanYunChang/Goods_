@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2018-1-5 11:37:21 by Hibernate Tools 5.2.6.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.baoliang.Model.Manager" table="Manager">
+        <id name="phone" type="java.lang.String">
+            <column name="phone" />
+            <generator class="assigned" />
+        </id>
+        <property name="pass" type="java.lang.String">
+            <column name="pass" />
+        </property>
+    </class>
+</hibernate-mapping>

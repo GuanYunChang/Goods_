@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+.maintitle{
+	
+	text-align: center;
+	margin-top:200px;
+}
+.logininput{
+	
+	width:400px;
+	height:300px;
+	margin:0 auto;
+	margin-top:50px;
+}
+
+.subbtn{
+	
+	width:100%;
+	margin-top:50px;
+	
+	
+}
+
+.check{
+	
+	width: 50%;
+	margin:0 atuo;
+	float :right;
+	text-align: center;	
+}
+.copyright{
+	width:100%;
+	height:200px;
+	background-color: red;
+}
+
+.textinfo{
+	
+	text-align: center;
+}
