@@ -95,7 +95,7 @@ public class Login extends ActionSupport {
 			}
 			System.out.println("登录成功"+getName()+","+getPassword()+","+getCharacter());
 			flag=1;
-			session.setAttribute(getName(), getCharacter());
+			session.setAttribute("username", getName());
 			return SUCCESS;
 			
 			
@@ -107,6 +107,27 @@ public class Login extends ActionSupport {
 	{
 		System.out.println(getPhone()+","+getVcode());
 		//SendMessage.SetTaoBao(getPhone(),getVcode());
+		return SUCCESS;
+	}
+	
+	/**
+	 * 退出登录
+	 * @return
+	 */
+	public String Logout()
+	{
+		HttpServletRequest request = ServletActionContext.getRequest(); 
+		HttpSession session = request.getSession();
+		try {
+			
+			session.removeAttribute("username");
+			System.out.println("退出成功");
+			
+		}catch(Exception e) {
+			
+			System.out.println("退出失败");
+			return ERROR;
+		}
 		return SUCCESS;
 	}
 		

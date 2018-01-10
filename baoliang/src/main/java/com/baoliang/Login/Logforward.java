@@ -17,7 +17,10 @@ public class Logforward extends ActionSupport {
 	}
 	@Override
 	public String execute() throws Exception {
-		
+		if(!Sessionverify.verify())
+		{
+			return ERROR;
+		}
 		return SUCCESS;
 	}
 }

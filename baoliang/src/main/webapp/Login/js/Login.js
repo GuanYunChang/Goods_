@@ -1,7 +1,6 @@
 //异步提交表单
 $('#submitbtn').click(function() {
-	
-					
+		
                     var userName = $('#Username').val();
                     var pass = $('#Password').val();
                     var character = $('#character').val();        

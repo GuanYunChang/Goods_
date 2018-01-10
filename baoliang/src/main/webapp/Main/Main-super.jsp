@@ -26,7 +26,7 @@
  			 <div class="container-fluid">
  			 <row>
    		 		<div class="col-xs-2 "><a class="navbar-brand" href="#">物流配送系统</a></div>
-   		 		<button class="btn btn-primary btnlog" type="submit">退出</button>
+   		 		<button class="btn btn-primary btnlog" type="submit" onclick="logout()">退出</button>
   				<span id="username" class="label label-info loginnames"><s:property value="username" /> </span>
   				</row>
   			</div>
