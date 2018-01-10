@@ -4,6 +4,10 @@
  **/
 package com.baoliang.Login;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -58,7 +62,8 @@ public class Login extends ActionSupport {
 		}
 		@Override
 		  public String execute() throws Exception{
-			
+			HttpServletRequest request = ServletActionContext.getRequest(); 
+			HttpSession session = request.getSession(); 
 			ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
 			System.out.println(getCharacter());
 			switch(Integer.parseInt(getCharacter()))
@@ -73,6 +78,7 @@ public class Login extends ActionSupport {
 					System.out.println("登录失败========"+getName()+"========="+getPassword());
 					return ERROR;
 				}
+				
 				break;
 			case 2:
 				bossDaoImp bo= (bossDaoImp) context.getBean("bossDaoImp");
@@ -89,6 +95,7 @@ public class Login extends ActionSupport {
 			}
 			System.out.println("登录成功"+getName()+","+getPassword()+","+getCharacter());
 			flag=1;
+			session.setAttribute(getName(), getCharacter());
 			return SUCCESS;
 			
 			

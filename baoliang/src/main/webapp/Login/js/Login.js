@@ -21,7 +21,7 @@ $('#submitbtn').click(function() {
                         if(data.flag==1)
                         	{
              
-                        window.location.href="http://"+window.location.hostname+":"+window.location.port+"/baoliang/Logforward";
+                        window.location.href="http://"+window.location.hostname+":"+window.location.port+"/baoliang/Logforward?username="+userName;
                         
                         	
                         	}
