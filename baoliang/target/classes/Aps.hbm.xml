@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generated 2018-1-5 11:37:21 by Hibernate Tools 5.2.6.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-1-10 7:48:01 by Hibernate Tools 5.2.6.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
     <class catalog="goods" dynamic-insert="false" dynamic-update="false" mutable="true" name="Aps" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="aps">
         <id name="id" type="int">
             <column name="id"/>
-            <generator class="increment"/>
+            <generator class="assigned"/>
         </id>
         <many-to-one class="Application" embed-xml="true" fetch="select" insert="true" name="application" not-found="exception" optimistic-lock="true" unique="false" update="true">
             <column name="acnum"/>

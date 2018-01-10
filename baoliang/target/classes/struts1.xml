@@ -6,8 +6,23 @@
     <struts>
     
   
-	<package  name="com.baoliang.Login.Login" extends="struts-default" >
+	<package  name="com.baoliang.Login.Login" extends="json-default" >
 		<action name="Login" class="com.baoliang.Login.Login">
+			 <result name="success" type="json"></result>
+		</action>
+<!-- 发送短信 -->
+		<action name="Sendmessage" class="com.baoliang.Login.Login" method="sendmessage">
+			 <result name="success" type="json"></result>
+		</action>
+<!-- 注册发单人 -->
+		<action name="Register" class="com.baoliang.Login.Register" method="Register">
+			<result name="success" type="json"></result>
+		</action>
+	</package>
+	
+<!-- 过渡页面 -->
+	<package name="com.baoliang.Login.forward" extends="struts-default">
+		<action name="Logforward" class="com.baoliang.Login.Logforward">
 			<result name="success">/Main/Main-super.jsp</result>
 		</action>
 	</package>

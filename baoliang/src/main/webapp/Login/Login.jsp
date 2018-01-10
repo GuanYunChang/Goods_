@@ -8,15 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="Lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="Lib/jquery.min.js"></script>
  <script src="Lib/bootstrap/js/bootstrap.min.js"></script>
  <link href="Login/css/Login.css" rel="stylesheet">
  <link rel="shortcut icon" href="Login/pic/login.ico" >
+ 
 <title>登录</title>
 </head>
 <body>
 	<h3 class="maintitle">欢迎使用本系统 <small>enjoying</small></h3>
-	<form class="form-horizontal logininput" role="form" action="Login" method="post">
+	<form id="userdata" class="form-horizontal logininput" role="form" action="Login" method="post">
 	<div class="form-group">
 		<label for="firstname" class="col-sm-2 control-label">Username</label>
 		<div class="col-sm-10">
@@ -40,12 +41,53 @@
 	</div>
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-10">
-			<input type="submit" class="btn btn-success subbtn" value="Login"/>
+			<input type="button" id="submitbtn" class="btn btn-success subbtn" value="Login" />
+			<button type="button" class="btn btn-primary subbtn" data-toggle="modal" data-target="#registerwindow" data-whatever="Register">Register</button>
 		</div>
 	</div>
 </form>
+		
+<!-- 注册框 -->
+<div class="modal fade" id="registerwindow" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" >New Register</h4>
+      </div>
+      <div class="modal-body">
+        <form id="registerform">
+          <div class="form-group">
+            <label  class="control-label">UserName</label>
+            <input type="text" class="form-control" id="registername" onblur="verifyname()" value=""/>
+            <p id="alertname" class="alerttext"></p>
+          </div>
+          <div class="form-group">
+          	<label class="control-label">Phone</label>
+          	<input type="text" class="form-control" id="phone" onblur="verifyphone()"/> <input type="button" id="sendverifycode" value="send verify code"/> 
+          	<input type="text" id="verifycode"/ value="">
+          	<p id="alertphone" class="alerttext"></p>
+          </div>
+          <div class="form-group">
+            <label  class="control-label">password</label>
+            <input type="password" class="form-control" id="password" onblur="verifypass()"></input>
+             <label  class="control-label">Repeat your password</label>
+              <p id="alertphone"></p>
+            <input type="password" class="form-control" id="repassword" onblur="verifypass()"></input>
+            <p id="alertpass" class="alerttext"></p>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="closeandverify()">Register</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="copyrights">
 	<h3 class="textinfo">&copy Copyright by zhubaoliang</h3>
 </div>
 </body>
+<script type="text/javascript" src="Login/js/Login.js"></script>
 </html>

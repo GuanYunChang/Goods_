@@ -26,6 +26,11 @@
 	<bean name="ManagerDaoImp" class="com.baoliang.Model.ManagerDaoImp">
 	<property name="jdbcTemplate" ref="jdbcTemplate"></property>
 	</bean>
+	
+	<!-- 注册 -->
+	<bean name="bossDaoImp" class="com.baoliang.Model.bossDaoImp">
+	<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
 	                          
 </beans>
                            

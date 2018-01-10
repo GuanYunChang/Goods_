@@ -18,51 +18,53 @@ public class ManagerDaoImp extends JdbcDaoSupport implements ManagerDao{
 
 	 
 
-	public void save(Manager mg) {
+	public void save(String phone,String pass,String name) {
 		
-		
-	}
-
-	public void update(Manager mg) {
-		// TODO Auto-generated method stub
+		this.getJdbcTemplate().update("insert into Manager(phone,pass,name) values(?,?,?);", new Object[] {phone,pass,name});
 		
 	}
 
-	public void delete(Manager mg) {
-		// TODO Auto-generated method stub
+	public void update(String passold ,String phone,String pass,String name) {
+		this.getJdbcTemplate().update("update Manager set pass= ? where phone = ? and pass= ?",new Object[] {pass,phone,passold});
+		
+	}
+
+	public void delete(String phone) {
+		
+		this.getJdbcTemplate().update("delete from Manager where phone =?",new Object[] {phone});
 		
 	}
 
 	public Manager findByphone(String phone) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.getJdbcTemplate().queryForObject("select * from Manager where phone= ?",new Object[] {phone}, Manager.class);
 	}
 
 	public List<Manager> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.getJdbcTemplate().queryForList("select * from Manager",Manager.class);
 	}
-
+@SuppressWarnings(value = { "unchecked" })
 	public boolean confirm(String phone, String pass) {
 		
 		boolean flag=true;
-		System.out.println("++++++++++++++++++++++++++++"+getJdbcTemplate());
-		flag=this.getJdbcTemplate().query("select name from Manager where phone=? and pass = ?", new Object[] {phone,pass},new ResultSetExtractor() {
+
+		flag=this.getJdbcTemplate().query("select name from Manager where phone=? and pass = ?  ", new Object[] {phone,pass},new ResultSetExtractor() {
 
 			public Object extractData(ResultSet rs) throws SQLException, DataAccessException {
-				System.out.println("++++++++++++++++++++=======================");
+				
 				try {
 					
 					rs.last();
 					int count=rs.getRow();
 					if(count==0)
 					{
-						System.out.println("个数为+++++++++++++）+）+）+++"+count);
+						
 						return false;
 					}
 					return true;
 				}catch(NullPointerException e) {
-					System.out.println("这是空的=======================");
+					
 					return false;
 					
 				}

@@ -9,6 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.baoliang.Model.Manager;
 import com.baoliang.Model.ManagerDaoImp;
+import com.baoliang.Model.bossDaoImp;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class Login extends ActionSupport {
@@ -34,7 +35,27 @@ public class Login extends ActionSupport {
 		public void setCharacter(String character) {
 			this.character = character;
 		}
-		
+		int flag=0;
+		public int getFlag() {
+			return flag;
+		}
+		public void setFlag(int flag) {
+			this.flag = flag;
+		}
+		private String vcode;
+		public String getVcode() {
+			return vcode;
+		}
+		public void setVcode(String vcode) {
+			this.vcode = vcode;
+		}
+		private String phone;
+		public String getPhone() {
+			return phone;
+		}
+		public void setPhone(String phone) {
+			this.phone = phone;
+		}
 		@Override
 		  public String execute() throws Exception{
 			
@@ -44,23 +65,42 @@ public class Login extends ActionSupport {
 			{
 			case 1: 
 				ManagerDaoImp mg= (ManagerDaoImp) context.getBean("ManagerDaoImp");
-				System.out.println("========"+getName()+"========="+getPassword());
+				
 				if(mg.confirm(getName(), getPassword())==false)
 				{
-					System.out.println("======================bad");
+					
+					flag=0;
+					System.out.println("登录失败========"+getName()+"========="+getPassword());
 					return ERROR;
 				}
 				break;
-			case 2: break;
-			case 3: break;
+			case 2:
+				bossDaoImp bo= (bossDaoImp) context.getBean("bossDaoImp");
+				
+				if(bo.confirm(getName(), getPassword())==false)
+				{
+					
+					flag=0;
+					System.out.println("登录失败========"+getName()+"========="+getPassword());
+					return ERROR;
+				}
+			
 			
 			}
-			System.out.println("============================成功");
+			System.out.println("登录成功"+getName()+","+getPassword()+","+getCharacter());
+			flag=1;
 			return SUCCESS;
 			
 			
 		}
 		
+	
 		
+	public String sendmessage()
+	{
+		System.out.println(getPhone()+","+getVcode());
+		//SendMessage.SetTaoBao(getPhone(),getVcode());
+		return SUCCESS;
+	}
 		
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generated 2018-1-5 11:37:21 by Hibernate Tools 5.2.6.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-1-10 7:48:01 by Hibernate Tools 5.2.6.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
     <class catalog="goods" dynamic-insert="false" dynamic-update="false" mutable="true" name="Drivers" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="drivers">
         <id name="drivernums" type="string">
@@ -31,7 +31,7 @@
             <key on-delete="noaction">
                 <column name="drivernum"/>
             </key>
-            <one-to-many class="com.baoliang.Model.Aps" embed-xml="true" not-found="exception"/>
+            <one-to-many class="Aps" embed-xml="true" not-found="exception"/>
         </set>
     </class>
 </hibernate-mapping>

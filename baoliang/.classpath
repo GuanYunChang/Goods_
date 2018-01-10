@@ -30,5 +30,7 @@
 	</classpathentry>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0"/>
 	<classpathentry exported="true" kind="lib" path="/home/liang/solft/lib/mysql-connector-java-5.1.45.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/liang/solft/lib/taobao-sdk-java-auto_1455552377940-20160607.jar" sourcepath="/home/liang/solft/lib/taobao-sdk-java-auto_1455552377940-20160607.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/liang/solft/lib/taobao-sdk-java-auto_1455552377940-20160607-source.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

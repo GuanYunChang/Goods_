@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-1-10 7:42:27 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.baoliang.Model.boss" table="boss">
+        <id name="bossphone" type="java.lang.String">
+            <column name="bossphone" />
+            <generator class="assigned" />
+        </id>
+        <property name="bosspass" type="java.lang.String">
+            <column name="bosspass" />
+        </property>
+        <property name="bossname" type="java.lang.String">
+            <column name="bossname" />
+        </property>
+    </class>
+</hibernate-mapping>

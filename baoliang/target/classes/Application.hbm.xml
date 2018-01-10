@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generated 2018-1-5 11:37:21 by Hibernate Tools 5.2.6.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-1-10 7:48:01 by Hibernate Tools 5.2.6.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
     <class catalog="goods" dynamic-insert="false" dynamic-update="false" mutable="true" name="Application" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="application">
         <id name="acnum" type="string">
             <column name="acnum"/>
             <generator class="assigned"/>
         </id>
-        <property generated="never" lazy="false" name="boss" optimistic-lock="true" type="string" unique="false">
+        <many-to-one class="Boss" embed-xml="true" fetch="select" insert="true" name="bossByBoss" not-found="exception" optimistic-lock="true" unique="false" update="true">
             <column name="boss"/>
-        </property>
-        <property generated="never" lazy="false" name="phone" optimistic-lock="true" type="string" unique="false">
+        </many-to-one>
+        <many-to-one class="Boss" embed-xml="true" fetch="select" insert="true" name="bossByPhone" not-found="exception" optimistic-lock="true" unique="false" update="true">
             <column name="phone"/>
-        </property>
+        </many-to-one>
         <property generated="never" lazy="false" name="goods" optimistic-lock="true" type="string" unique="false">
             <column name="goods"/>
         </property>
@@ -25,7 +25,7 @@
             <key on-delete="noaction">
                 <column name="acnum"/>
             </key>
-            <one-to-many class="com.baoliang.Model.Aps" embed-xml="true" not-found="exception"/>
+            <one-to-many class="Aps" embed-xml="true" not-found="exception"/>
         </set>
     </class>
 </hibernate-mapping>
