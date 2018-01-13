@@ -23,16 +23,16 @@
 <!-- 分割按钮 -->
 	<div class="btn-group btn-group-justified" role="group" aria-label="...">
   <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default" onclick="Selecttable(1)" >全部</button>
+    <button type="button" class="btn btn-default" onclick="Selecttable(1)" >待分配</button>
   </div>
   <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default" onclick="Selecttable(2)">修整</button>
+    <button type="button" class="btn btn-default" onclick="Selecttable(2)">车辆修整</button>
   </div>
   <div class="btn-group" role="group">
     <button type="button" class="btn btn-default" onclick="Selecttable(3)">运送中</button>
   </div>
   <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default"  onclick="Selecttable(4)">可配货</button>
+    <button type="button" class="btn btn-default"  onclick="Selecttable(4)">可配货司机</button>
   </div>
 	</div>
 
@@ -42,12 +42,9 @@
         			<td>货运单号</td>
         			<td>订单人</td>
         			<td>订单人电话</td>
-        			<td>车号</td>
-        			<td>司机</td>
-        			<td>司机电话</td>
         			<td>货物</td>
+        			<td>始发地</td>
         			<td>目的地</td>
-        			<td>状态</td>
         		</tr>
 			</table>
 			<table id="table2" class="table table-hover">

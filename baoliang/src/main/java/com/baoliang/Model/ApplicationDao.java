@@ -8,10 +8,10 @@ import java.util.List;
 
 public interface ApplicationDao {
 
-	public void save(Application application);
-	public void update(Application application);
-	public void delete(Application application);
-	public Application findByacm(String acmcode);
-	public List<Application> findAll();
+	public void save(String boss,String phone,String goods,String start,String destination);
+	public void update(String acnum,String boss,String phone,String goods,String start,String destination);
+	public void delete(String acnum);
+	Application findByAcnum(String acnum);
+	List<Application> findAll();
 	
 }

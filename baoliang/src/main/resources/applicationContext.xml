@@ -21,7 +21,7 @@
 		<property name="password" value="123"/>
 	</bean>
 
-	<!-- 扫描包裹告诉spring bean在哪个包里 -->
+	<!-- 扫描包裹告诉spring bean在哪个包里 注解-->
 	<context:component-scan base-package="com.baoliang.Model"/>
 	<bean name="ManagerDaoImp" class="com.baoliang.Model.ManagerDaoImp">
 	<property name="jdbcTemplate" ref="jdbcTemplate"></property>
@@ -31,6 +31,10 @@
 	<bean name="bossDaoImp" class="com.baoliang.Model.bossDaoImp">
 	<property name="jdbcTemplate" ref="jdbcTemplate"></property>
 	</bean>
-	                          
+	            
+	 <!-- 获取主页表格资料 -->  
+	 <bean name="ApplicationDaoImp" class="com.baoliang.Model.ApplicationDaoImp">
+	 	<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	 </bean>     
 </beans>
                            

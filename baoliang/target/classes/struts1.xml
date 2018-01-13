@@ -23,7 +23,12 @@
 		<result name="success" type="json"></result>
 		</action>
 	</package>
-	
+<!-- 获取主页面数据 -->
+<package  name="com.baoliang.MainAction.Getchartdata" extends="json-default" >
+	<action name="getapsdata" class="com.baoliang.MainAction.Getchartdata"  method="getApplicationData">
+	<result name="success" type="json"></result>
+	</action>
+</package>
 <!-- 过渡页面 -->
 	<package name="com.baoliang.Login.forward" extends="struts-default">
 		<action name="Logforward" class="com.baoliang.Login.Logforward">

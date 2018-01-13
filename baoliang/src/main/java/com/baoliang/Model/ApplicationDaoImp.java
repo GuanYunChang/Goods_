@@ -6,73 +6,39 @@ package com.baoliang.Model;
 
 import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.query.Query;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-@Repository
-public class ApplicationDaoImp implements ApplicationDao{
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
-	private SessionFactory sessionFactory=GetSessionFactory.sessionFactory;
-	
-	
-	public SessionFactory getSessionFactory() {
-		return sessionFactory;
-	}
-	
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
+import com.baoliang.Tools.produceacnum;
+
+public class ApplicationDaoImp extends JdbcDaoSupport implements ApplicationDao {
+
+	public void save( String boss, String phone, String goods, String start, String destination) {
+		
+		this.getJdbcTemplate().update("insert into application application(acnum,boss,phone,goods,start,destination) values(?,?,?,?,?,?)",new Object[]{produceacnum.getacnum(),boss,phone,goods,start,destination});
+		
 	}
 
-	 public Session getCurrentSession(){
-	        return this.sessionFactory.getCurrentSession();
-	    }
-	public void save(Application application) {
-		Transaction tx=this.getCurrentSession().beginTransaction();
-        try{
-            this.getCurrentSession().save(application);
-            tx.commit();
-        }catch(Exception e){
-            if(null!=tx){tx.rollback();}
-            e.printStackTrace();
-        }  
+	//此方法取消更改订单只能通过取消后重新添加
+	public void update(String acnum, String boss, String phone, String goods, String start, String destination) {
+		
 		
 	}
-	public void update(Application application) {
-		 Transaction tx=this.getCurrentSession().beginTransaction();
-         try{
-             this.getCurrentSession().update(application);
-             tx.commit();
-         }catch(Exception e){
-             if(null!=tx){tx.rollback();}
-             e.printStackTrace();
-         }  
+
+	public void delete(String acnum) {
+		this.getJdbcTemplate().update("delete from application where acnum =?",new Object[] {acnum});
 		
 	}
-	public void delete(Application application) {
-		 Transaction tx=this.getCurrentSession().beginTransaction();
-         try{
-             this.getCurrentSession().delete(application);
-             tx.commit();
-         }catch(Exception e){
-             if(null!=tx){tx.rollback();}
-             e.printStackTrace();
-         }  
+
+	public Application findByAcnum(String acnum) {
 		
+		return this.getJdbcTemplate().queryForObject("select * from application where acnum=?", new Object[] {acnum},Application.class);
 	}
-	public Application findByacm(String acmcode) {
-		 Transaction tx=this.getCurrentSession().beginTransaction();
-		 Application ap=(Application)this.getCurrentSession().createQuery("from Manager a where a.acnum='"+acmcode+"'").uniqueResult();
-         return ap;
-	}
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<Application> findAll() {
-		 Transaction tx=this.getCurrentSession().beginTransaction();
-		 Query query= this.getCurrentSession().createQuery("from application");
-         return query.list();
+		return this.getJdbcTemplate().query("select * from application", new BeanPropertyRowMapper(Application.class));
+		
 	}
-	
-	
 
 }
