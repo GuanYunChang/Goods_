@@ -4,33 +4,37 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="../Lib/jquery.min.js"></script>
 <script src="../Lib/bootstrap/js/bootstrap.min.js"></script>
 <link href="../Lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body>
 
-	<form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputFile">File input</label>
-    <input type="file" id="exampleInputFile">
-    <p class="help-block">Example block-level help text here.</p>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> Check me out
-    </label>
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
-
+ <form id="registerform">
+          <div class="form-group">
+            <label  class="control-label">UserName</label>
+            <input type="text" class="form-control" id="registername" onblur="verifyname()" value=""/>
+            <p id="alertname" class="alerttext"></p>
+          </div>
+          <div class="form-group">
+          	<label class="control-label">Phone</label>
+          	<input type="text" class="form-control" id="phone" onblur="verifyphone()"/> <input type="button" id="sendverifycode" value="send verify code"/> 
+          	<input type="text" id="verifycode"/ value="">
+          	<p id="alertphone" class="alerttext"></p>
+          </div>
+          <div class="form-group">
+            <label  class="control-label">password</label>
+            <input type="password" class="form-control" id="password" onblur="verifypass()"></input>
+             <label  class="control-label">Repeat your password</label>
+              <p id="alertphone"></p>
+            <input type="password" class="form-control" id="repassword" onblur="verifypass()"></input>
+            <p id="alertpass" class="alerttext"></p>
+          </div>
+        </form>
+<div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="closeandverify()">Register</button>
+      </div>
 </body>
+<script type="text/javascript" src="js/RegistrerManager.js"></script>
 </html>
