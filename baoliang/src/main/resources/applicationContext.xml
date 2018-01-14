@@ -35,6 +35,9 @@
 	 <!-- 获取主页表格资料 -->  
 	 <bean name="ApplicationDaoImp" class="com.baoliang.Model.ApplicationDaoImp">
 	 	<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	 </bean>
+	 <bean name="DriversDaoImp" class="com.baoliang.Model.DriversDaoImp">
+	 	<property name="jdbcTemplate" ref="jdbcTemplate"></property>
 	 </bean>     
 </beans>
                            

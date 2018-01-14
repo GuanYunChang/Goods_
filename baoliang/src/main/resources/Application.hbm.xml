@@ -21,11 +21,19 @@
         <property generated="never" lazy="false" name="destination" optimistic-lock="true" type="string" unique="false">
             <column name="destination"/>
         </property>
-        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="apses" optimistic-lock="true" sort="unsorted" table="aps">
-            <key on-delete="noaction">
-                <column name="acnum"/>
-            </key>
-            <one-to-many class="Aps" embed-xml="true" not-found="exception"/>
-        </set>
+         <many-to-one class="Drivers" embed-xml="true" fetch="select" insert="true" name="driversBydrivernum" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="drivernum"/>
+            
+       </many-to-one>
+        <many-to-one class="Drivers" embed-xml="true" fetch="select" insert="true" name="driverBystatue" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="statue"/>
+        </many-to-one>
+        <many-to-one class="Drivers" embed-xml="true" fetch="select" insert="true" name="driverBycar" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="car"/>
+        </many-to-one>
+        <many-to-one class="Drivers" embed-xml="true" fetch="select" insert="true" name="bossByweight" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="weight"/>
+        </many-to-one>
+        
     </class>
 </hibernate-mapping>

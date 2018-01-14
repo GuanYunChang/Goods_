@@ -17,7 +17,7 @@ public class Drivers implements java.io.Serializable {
 	private Double cargo;
 	private String statue;
 	private String sumlength;
-	private Set apses = new HashSet(0);
+
 
 	public Drivers() {
 	}
@@ -36,7 +36,7 @@ public class Drivers implements java.io.Serializable {
 		this.cargo = cargo;
 		this.statue = statue;
 		this.sumlength = sumlength;
-		this.apses = apses;
+		
 	}
 
 	public String getDrivernums() {
@@ -103,12 +103,6 @@ public class Drivers implements java.io.Serializable {
 		this.sumlength = sumlength;
 	}
 
-	public Set getApses() {
-		return this.apses;
-	}
-
-	public void setApses(Set apses) {
-		this.apses = apses;
-	}
+	
 
 }

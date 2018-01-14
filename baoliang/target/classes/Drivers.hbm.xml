@@ -27,11 +27,11 @@
         <property generated="never" lazy="false" name="sumlength" optimistic-lock="true" type="string" unique="false">
             <column name="sumlength"/>
         </property>
-        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="apses" optimistic-lock="true" sort="unsorted" table="aps">
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="applicationfor" optimistic-lock="true" sort="unsorted" table="application">
             <key on-delete="noaction">
                 <column name="drivernum"/>
             </key>
-            <one-to-many class="Aps" embed-xml="true" not-found="exception"/>
+            <one-to-many class="Application" embed-xml="true" not-found="exception"/>
         </set>
     </class>
 </hibernate-mapping>

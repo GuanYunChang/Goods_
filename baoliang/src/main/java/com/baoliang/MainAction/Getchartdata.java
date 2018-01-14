@@ -10,6 +10,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.baoliang.Model.Application;
 import com.baoliang.Model.ApplicationDaoImp;
+import com.baoliang.Model.Drivers;
+import com.baoliang.Model.DriversDaoImp;
 import com.baoliang.Tools.jsontools;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -44,11 +46,24 @@ public class Getchartdata extends ActionSupport{
 	{
 		switch(Integer.parseInt(getIndex()))
 		{case 1:
-		ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
-		ApplicationDaoImp apc= (ApplicationDaoImp) context.getBean("ApplicationDaoImp");
-		jsonString=jsontools.tojsonForNoArray(apc.findAll(), Application.class);
-		System.out.println(jsonString);
-		break;
+			ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
+			ApplicationDaoImp apc= (ApplicationDaoImp) context.getBean("ApplicationDaoImp");
+			jsonString=jsontools.tojsonForNoArray(apc.findAll(getIndex()), Application.class);
+			System.out.println(jsonString);
+			
+			break;
+		case 2:
+			ApplicationContext context2 = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
+			DriversDaoImp drv= (DriversDaoImp) context2.getBean("DriversDaoImp");
+			jsonString=jsontools.tojsonForNoArray(drv.findAll(getIndex()), Drivers.class);
+			System.out.println(jsonString);
+			break;
+		case 3:
+			ApplicationContext context3 = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
+			ApplicationDaoImp apc3= (ApplicationDaoImp) context3.getBean("ApplicationDaoImp");
+			jsonString=jsontools.tojsonForNoArray(apc3.findAll(getIndex()), Application.class);
+			System.out.println(jsonString);
+			break;
 		}
 		return SUCCESS;
 	}

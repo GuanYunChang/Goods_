@@ -31,9 +31,7 @@
   <div class="btn-group" role="group">
     <button type="button" class="btn btn-default" onclick="Selecttable(3)">运送中</button>
   </div>
-  <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default"  onclick="Selecttable(4)">可配货司机</button>
-  </div>
+  
 	</div>
 
 
@@ -43,25 +41,37 @@
         			<td>订单人</td>
         			<td>订单人电话</td>
         			<td>货物</td>
+        			<td>重量</td>
         			<td>始发地</td>
         			<td>目的地</td>
         		</tr>
 			</table>
 			<table id="table2" class="table table-hover">
         		<tr>
-        			<td>车号</td>
-        			<td>司机</td>
+        			<td>司机编号</td>
+        			<td>姓名</td>
         			<td>电话</td>
+        			<td>车号</td>
         			<td>装载量</td>
-        			<td>车类型</td>
-        			<td>信息</td>
-        			<td>状态</td>
+        		</tr>
+			</table>
+		<table id="table3" class="table table-hover">
+        		<tr>
+        			<td>货运单号</td>
+        			<td>订单人</td>
+        			<td>订单人电话</td>
+        			<td>货物</td>
+        			<td>重量</td>
+        			<td>始发地</td>
+        			<td>目的地</td>
+        			<td>司机</td>
+        			<td>车牌</td>
         		</tr>
 			</table>
 	<div class="pagebtn">
-	<button type="button" class="btn btn-default">上一页</button>
+	<button type="button" class="btn btn-default" onclick="preview()">上一页</button>
 	<button type="button" class="btn btn-default" onclick="next()">下一页</button>
-	<span class="label label-default" id="pageshow">第一页</span>
+	<span class="label label-default" id="pageshow"></span>
 </div>
 	
 	<script type="text/javascript" src="js/chart.js"></script>

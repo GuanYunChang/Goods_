@@ -18,7 +18,44 @@ public class Application implements java.io.Serializable {
 	private String goods;
 	private String start;
 	private String destination;
-	private Set apses = new HashSet(0);
+	private String drivernum;
+
+	public String getDrivernum() {
+		return drivernum;
+	}
+
+	public void setDrivernum(String drivernum) {
+		this.drivernum = drivernum;
+	}
+
+	public String getStatue() {
+		return statue;
+	}
+
+	public void setStatue(String statue) {
+		this.statue = statue;
+	}
+
+	public String getCar() {
+		return car;
+	}
+
+	public void setCar(String car) {
+		this.car = car;
+	}
+
+	public double getWeight() {
+		return weight;
+	}
+
+	public void setWeight(double weight) {
+		this.weight = weight;
+	}
+
+	private String statue;
+	private String car;
+	private double weight;
+	
 
 	public Application() {
 	}
@@ -28,14 +65,18 @@ public class Application implements java.io.Serializable {
 	}
 
 	public Application(String acnum, String boss, String phone, String goods, String start, String destination,
-			Set apses) {
+			String drivernum,String statue,double weight,String car) {
 		this.acnum = acnum;
 		this.boss = boss;
 		this.phone = phone;
 		this.goods = goods;
 		this.start = start;
 		this.destination = destination;
-		this.apses = apses;
+		
+		this.drivernum=drivernum;
+		this.statue=statue;
+		this.weight= weight;
+		this.car=car;
 	}
 
 	public String getAcnum() {
@@ -86,12 +127,5 @@ public class Application implements java.io.Serializable {
 		this.destination = destination;
 	}
 
-	public Set getApses() {
-		return this.apses;
-	}
-
-	public void setApses(Set apses) {
-		this.apses = apses;
-	}
-
+	
 }
