@@ -9,7 +9,8 @@ $('#submitbtn').click(function() {
                             return false;
                     }
                     var parm = $("#userdata").serialize();
-                   
+                    var c1=document.getElementById('character1');
+                    var c2=document.getElementById('character2');
                 $.ajax({ 
                     type : "post",
                     url : "${pageContext.request.contextPath}/Login",
@@ -19,10 +20,20 @@ $('#submitbtn').click(function() {
                     success : function(data) {
                         if(data.flag==1)
                         	{
-             
-                        window.location.href="http://"+window.location.hostname+":"+window.location.port+"/baoliang/Logforward?username="+userName;
-                        
-                        	
+                        		var tag;
+                        		if(c1.checked==true)
+                        			tag=1;
+                        		else
+                        			if(c2.checked==true)
+                        				tag=2;
+                        		switch(tag)
+                        		{
+                        		case 1:window.location.href="http://"+window.location.hostname+":"+window.location.port+"/baoliang/Logforward?username="+userName;
+                        			break;
+                        		case 2:window.location.href="http://"+window.location.hostname+":"+window.location.port+"/baoliang/Logforward1?username="+userName;
+                        			break;
+                        		}
+                        		
                         	}
                         else 
                         	 alert("登录失败");

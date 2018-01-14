@@ -27,9 +27,10 @@ $(function(){
 	$("#table2").hide();
 	$("#table3").hide();
 	getapplicationdata(1,1);
+	getcountoftable();
 	//document.getElementById("pageshow").innerHTML=table1count;
 })
-var pagesum=1;
+var pagesum=10;
 var table1count=1;
 var table2count=1;
 var table3count=1;
@@ -244,4 +245,57 @@ function preview()
 		break;
 	
 	}
+}
+
+
+
+/**
+ * 画图形
+ * @returns
+ */
+function getcountoftable()
+{
+	$.ajax({
+		type:"get",
+		url:"getcountofmaintable",
+		dataType:"json",
+		success:function(data)
+		{
+			
+			
+			var pers = new Array();
+			var one=data.taketable1;
+			var two=data.taketable2;
+			var three=data.taketable3;
+			var sum=one+two+three;
+			var data = [
+	        	{name : '待配货',value: one/sum,color:'#9d4a4a'},
+	        	{name : '车辆修整',value : two/sum,color:'#5d7f97'},
+	        	{name : '运送中',value : three/sum,color:'#97b3bc'},
+	        	
+	    	];
+
+	new iChart.Pie2D({
+		render : 'canvasDiv',
+		data: data,
+		title : '出车率比例',
+		legend : {
+			enable : true
+		},
+		showpercent:true,
+		decimalsnum:2,
+		width : 800,
+		height : 400,
+		radius:140
+	}).draw();
+		
+			
+		},
+		error:function(){
+			
+			
+		}
+		
+	});
+
 }

@@ -9,6 +9,8 @@ import com.opensymphony.xwork2.ActionSupport;
 public class Logforward extends ActionSupport {
 
 	private String username;
+	
+	
 	public String getUsername() {
 		return username;
 	}
@@ -21,6 +23,18 @@ public class Logforward extends ActionSupport {
 		{
 			return ERROR;
 		}
+		System.out.println("execute()");
+		return SUCCESS;
+	}
+	
+	public String forward1()
+	{
+		
+		if(!Sessionverify.verify())
+		{
+			return ERROR;
+		}
+		System.out.println("forward1()");
 		return SUCCESS;
 	}
 }

@@ -34,8 +34,8 @@
 	</div>
 	<div class="form-group">
 	
-		<label class="check"><input name="character" type="radio" value="1" />Super</label>
-		<label class="check"><input name="character" type="radio" value="2" />Users</label>
+		<label class="check"><input id="character1" name="character" type="radio" value="1" />Super</label>
+		<label class="check"><input id="character2" name="character" type="radio" value="2" />Users</label>
 	
   </button>
 	</div>

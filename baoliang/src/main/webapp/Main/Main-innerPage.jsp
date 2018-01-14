@@ -8,8 +8,8 @@
 <link href="css/Main-innerPage.css" rel="stylesheet">
 <link href="../Lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script src="../Lib/jquery.min.js"></script>
- <script src="../Lib/bootstrap/js/bootstrap.min.js"></script>
- <script type="text/javascript" src="js/Main-innerPage.js"></script>
+<script src="../Lib/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/Main-innerPage.js"></script>
 <title>Insert title here</title>
 </head>
 <body>

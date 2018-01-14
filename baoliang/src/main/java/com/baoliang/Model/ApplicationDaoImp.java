@@ -45,5 +45,12 @@ public class ApplicationDaoImp extends JdbcDaoSupport implements ApplicationDao 
 		return this.getJdbcTemplate().query("select * from application where statue=?", new Object[]{statue},new BeanPropertyRowMapper(Application.class));
 		
 	}
+	
+	public Integer[] getcountofmaintable()
+	{
+		Integer[] counts = {this.getJdbcTemplate().queryForObject("select count(*) from application where statue='1'", Integer.class),this.getJdbcTemplate().queryForObject("select count(*) from drivers where statue='2'",Integer.class), this.getJdbcTemplate().queryForObject("select count(*) from application where statue='3'", Integer.class)};
+		
+		return counts;
+	}
 
 }

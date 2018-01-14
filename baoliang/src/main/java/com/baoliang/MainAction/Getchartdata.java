@@ -19,8 +19,35 @@ public class Getchartdata extends ActionSupport{
 
 	private String jsonString;
 	private String index;
+	private Integer taketable1;
+	private Integer taketable2;
+	private Integer taketable3;
 	public String getIndex() {
 		return index;
+	}
+
+	public Integer getTaketable1() {
+		return taketable1;
+	}
+
+	public void setTaketable1(Integer taketable1) {
+		this.taketable1 = taketable1;
+	}
+
+	public Integer getTaketable2() {
+		return taketable2;
+	}
+
+	public void setTaketable2(Integer taketable2) {
+		this.taketable2 = taketable2;
+	}
+
+	public Integer getTaketable3() {
+		return taketable3;
+	}
+
+	public void setTaketable3(Integer taketable3) {
+		this.taketable3 = taketable3;
 	}
 
 	public void setIndex(String index) {
@@ -35,15 +62,27 @@ public class Getchartdata extends ActionSupport{
 		this.jsonString = jsonString;
 	}
 
-	public String getApasData()
+	public String getcountofmaintable()
 	{
 		
-		
+		try {
+		ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
+		ApplicationDaoImp apc= (ApplicationDaoImp) context.getBean("ApplicationDaoImp");
+		Integer[] data=apc.getcountofmaintable();
+		setTaketable1(data[0]);
+		setTaketable2(data[1]);
+		setTaketable3(data[2]);
+		}catch(Exception e)
+		{
+			
+			return ERROR;
+		}
 		return SUCCESS;
 	}
 	
 	public String getApplicationData() throws JSONException, IllegalArgumentException, IllegalAccessException
 	{
+		try {
 		switch(Integer.parseInt(getIndex()))
 		{case 1:
 			ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
@@ -64,6 +103,10 @@ public class Getchartdata extends ActionSupport{
 			jsonString=jsontools.tojsonForNoArray(apc3.findAll(getIndex()), Application.class);
 			System.out.println(jsonString);
 			break;
+		}
+		}catch(Exception e)
+		{
+			return ERROR;
 		}
 		return SUCCESS;
 	}
