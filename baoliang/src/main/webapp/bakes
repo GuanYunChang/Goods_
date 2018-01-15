@@ -1,0 +1,15 @@
+$.ajax({
+		type:,
+		url:,
+		data:,
+		dataType:,
+		success:function(data)
+		{
+			
+		},
+		error:function(){
+			
+			
+		}
+		
+	});

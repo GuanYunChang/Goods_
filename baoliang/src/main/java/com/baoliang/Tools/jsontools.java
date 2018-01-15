@@ -42,6 +42,7 @@ public class jsontools {
 		}
 		//String jsonString = json.toString().substring(1,json.toString().length()-1);
 		//return jsonString;
+		System.out.println(json.toString());
 		return json.toString();
 	}
 }

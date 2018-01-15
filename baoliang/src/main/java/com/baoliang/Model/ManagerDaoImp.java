@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
@@ -40,9 +41,10 @@ public class ManagerDaoImp extends JdbcDaoSupport implements ManagerDao{
 		return this.getJdbcTemplate().queryForObject("select * from Manager where phone= ?",new Object[] {phone}, Manager.class);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List<Manager> findAll() {
 		
-		return this.getJdbcTemplate().queryForList("select * from Manager",Manager.class);
+		return this.getJdbcTemplate().query("select * from Manager",new BeanPropertyRowMapper(Manager.class));
 	}
 @SuppressWarnings(value = { "unchecked" })
 	public boolean confirm(String phone, String pass) {

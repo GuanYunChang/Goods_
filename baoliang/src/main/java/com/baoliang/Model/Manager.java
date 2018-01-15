@@ -20,4 +20,11 @@ public class Manager implements java.io.Serializable{
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
+	private String name;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 }

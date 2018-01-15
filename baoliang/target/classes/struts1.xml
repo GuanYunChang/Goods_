@@ -31,11 +31,20 @@
 	<action name="getcountofmaintable" class="com.baoliang.MainAction.Getchartdata"  method="getcountofmaintable">
 	<result name="success" type="json"></result>
 	</action>
+	<!-- 获取管理员列表 -->
+	<action name="getmanagerlist" class="com.baoliang.MainAction.Rootmanagement" method="getmanagerlist">
+		<result name="success" type="json"></result>
+	</action>
+	<action name="deletemanager" class="com.baoliang.MainAction.Rootmanagement" method="deletemanager">
+		<result name="success" type="json"></result>
+	</action>
+	
 </package>
 <package name="com.baoliang.siderbaraction.Managerinfoaction" extends="json-default">
 	<action name="RegisterManager" class="com.baoliang.siderbaraction.Managerinfoaction" method="addManager">
 		<result name="success" type="json"></result>
 	</action>
+
 </package>
 <!-- 过渡页面 -->
 	<package name="com.baoliang.Login.forward" extends="struts-default">

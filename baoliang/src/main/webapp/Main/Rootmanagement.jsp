@@ -25,12 +25,7 @@
 	</div>
 <div id="operate" class="operate"> 
 	<table id="optable" class="table table-hover optable">
-  	<tr>
-  		<td>管理员电话</td>
-  		<td>管理员名字</td>
-  		<td>操作</td>
-  	</tr>
-	
+  	<tr><td>管理员电话</td><td>管理员名字</td><td>操作</td></tr>
 </table>
 		
 	
