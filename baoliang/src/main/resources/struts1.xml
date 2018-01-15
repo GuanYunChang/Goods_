@@ -38,6 +38,9 @@
 	<action name="deletemanager" class="com.baoliang.MainAction.Rootmanagement" method="deletemanager">
 		<result name="success" type="json"></result>
 	</action>
+	<action name="editemanager" class="com.baoliang.MainAction.Rootmanagement" method="editemanager">
+		<result name="success" type="json"></result>
+	</action>
 	
 </package>
 <package name="com.baoliang.siderbaraction.Managerinfoaction" extends="json-default">
@@ -61,6 +64,12 @@
 			<result name="error">/error.jsp</result>
 		</action>
 		
+	</package>
+	<package name="com.baoliang.MainAction.Rootmanagement" extends="struts-default">
+		<action name="editemanagerforward" class="com.baoliang.MainAction.Rootmanagement" method="editemanagerforward">
+			<result name="success">/Main/Editmanager.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 	</package>
 
 	</struts>

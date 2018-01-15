@@ -29,6 +29,11 @@ public class ManagerDaoImp extends JdbcDaoSupport implements ManagerDao{
 		this.getJdbcTemplate().update("update Manager set pass= ? where phone = ? and pass= ?",new Object[] {pass,phone,passold});
 		
 	}
+	public void updateinfo(String phone,String name)
+	{
+		
+		this.getJdbcTemplate().update("update Manager set name= ? where phone = ? ",new Object[] {name,phone});
+	}
 
 	public void delete(String phone) {
 		

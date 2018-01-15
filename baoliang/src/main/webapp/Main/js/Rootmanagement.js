@@ -39,7 +39,7 @@ $(function(){
 			{
 				str=str+"<tr><td>"+mydata[i].phone+"</td><td>"+mydata[i].name+"</td>"
 				+"<td><input type=\"button\" value=\"删除\" onclick=\"deletemanager("+mydata[i].phone+")\"/>"
-				+"<input type=\"button\" value=\"修改\" onclick=\"editemanager("+mydata[i].phone+")\"/>";
+				+"<input type=\"button\" value=\"修改\" onclick=\"editemanager("+mydata[i].phone+",'"+mydata[i].name+"')\"/>";
 				
 				
 			}
@@ -79,4 +79,13 @@ function deletemanager(phone)
 		}
 		
 	});
+}
+/**
+ * 编辑管理员信息
+ * @param index
+ * @returns
+ */
+function editemanager(phone,name)
+{
+	 window.location.href="http://"+window.location.hostname+":"+window.location.port+"/baoliang/editemanagerforward?phone="+phone+"&name="+name; 
 }

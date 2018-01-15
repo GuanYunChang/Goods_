@@ -17,7 +17,17 @@ public class Rootmanagement extends ActionSupport {
 
 	private String managers;
 	private String phone;
-	
+	private String name;
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
 	public String getPhone() {
 		return phone;
 	}
@@ -58,6 +68,21 @@ public class Rootmanagement extends ActionSupport {
 		ApplicationContext context= new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
 		ManagerDaoImp mg= (ManagerDaoImp) context.getBean("ManagerDaoImp");
 		mg.delete(phone);
+		return SUCCESS;
+	}
+	
+	public String editemanager()
+	{
+		ApplicationContext context= new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
+		ManagerDaoImp mg= (ManagerDaoImp) context.getBean("ManagerDaoImp");
+		mg.updateinfo(getPhone(), getName());
+		return SUCCESS;
+	}
+	
+	public String editemanagerforward()
+	{
+		System.out.println("过渡"+getPhone()+","+getName());
+		
 		return SUCCESS;
 	}
 }
