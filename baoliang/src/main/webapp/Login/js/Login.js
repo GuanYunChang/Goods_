@@ -11,6 +11,7 @@ $('#submitbtn').click(function() {
                     var parm = $("#userdata").serialize();
                     var c1=document.getElementById('character1');
                     var c2=document.getElementById('character2');
+                    var c3=document.getElementById('character3');
                 $.ajax({ 
                     type : "post",
                     url : "${pageContext.request.contextPath}/Login",
@@ -26,12 +27,17 @@ $('#submitbtn').click(function() {
                         		else
                         			if(c2.checked==true)
                         				tag=2;
+                        			else if(c3.checked==true)	
+                        			 tag=3;
                         		switch(tag)
                         		{
                         		case 1:window.location.href="http://"+window.location.hostname+":"+window.location.port+"/baoliang/Logforward?username="+userName;
                         			break;
                         		case 2:window.location.href="http://"+window.location.hostname+":"+window.location.port+"/baoliang/Logforward1?username="+userName;
                         			break;
+                        		case 3: window.location.href="http://"+window.location.hostname+":"+window.location.port+"/baoliang/rootforward?username="+userName;
+                        			alert("s");
+                        		break;
                         		}
                         		
                         	}

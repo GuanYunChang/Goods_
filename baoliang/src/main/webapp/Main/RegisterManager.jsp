@@ -7,11 +7,12 @@
 <script src="../Lib/jquery.min.js"></script>
 <script src="../Lib/bootstrap/js/bootstrap.min.js"></script>
 <link href="../Lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/RegisterManager.css" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body>
 
- <form id="registerform">
+ <form id="registerform" class="registerform">
           <div class="form-group">
             <label  class="control-label">UserName</label>
             <input type="text" class="form-control" id="registername" onblur="verifyname()" value=""/>

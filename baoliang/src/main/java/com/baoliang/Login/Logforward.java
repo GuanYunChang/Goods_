@@ -37,4 +37,16 @@ public class Logforward extends ActionSupport {
 		System.out.println("forward1()");
 		return SUCCESS;
 	}
+	
+	public String rootlogin()
+	{
+		
+
+		if(!Sessionverify.verify())
+		{
+			return ERROR;
+		}
+		System.out.println("rootlogin");
+		return SUCCESS;
+	}
 }

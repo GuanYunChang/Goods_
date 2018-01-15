@@ -14,6 +14,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.baoliang.Model.Manager;
 import com.baoliang.Model.ManagerDaoImp;
 import com.baoliang.Model.bossDaoImp;
+import com.baoliang.Model.rootManagerDaoImp;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class Login extends ActionSupport {
@@ -90,12 +91,23 @@ public class Login extends ActionSupport {
 					System.out.println("登录失败========"+getName()+"========="+getPassword());
 					return ERROR;
 				}
-			
+				
+			case 3:
+				rootManagerDaoImp rm= (rootManagerDaoImp) context.getBean("rootManagerDaoImp");
+				if(rm.confirm(getName(), getPassword())==false)
+				{
+					
+					flag=0;
+					System.out.println("root用户登录失败");
+					return ERROR;
+				}
 			
 			}
+			
 			System.out.println("登录成功"+getName()+","+getPassword()+","+getCharacter());
 			flag=1;
 			session.setAttribute("username", getName());
+			session.setAttribute("character", getCharacter());
 			return SUCCESS;
 			
 			
@@ -121,6 +133,7 @@ public class Login extends ActionSupport {
 		try {
 			
 			session.removeAttribute("username");
+			session.removeAttribute("character");
 			System.out.println("退出成功");
 			
 		}catch(Exception e) {

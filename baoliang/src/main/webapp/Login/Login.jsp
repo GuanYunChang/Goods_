@@ -36,6 +36,7 @@
 	
 		<label class="check"><input id="character1" name="character" type="radio" value="1" />Super</label>
 		<label class="check"><input id="character2" name="character" type="radio" value="2" />Users</label>
+		<label class="check"><input id="character3" name="character" type="radio" value="3" />root</label>
 	
   </button>
 	</div>
