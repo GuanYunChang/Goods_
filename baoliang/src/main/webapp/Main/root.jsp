@@ -41,7 +41,7 @@
   	 			<ul class="nav nav-pills nav-stacked sta">
   					 <li role="presentation" onclick="selectFunc(0)" class="active"><a href="#">Home</a></li>
  					 <li role="presentation" onclick="rootselectFunc(1)"><a href="#">管理员管理</a></li>
-  					 <li role="presentation"><a href="#">Messages</a></li>
+  					 <li role="presentation" onclick="rootselectFunc(2)"><a href="#">订单管理</a></li>
   					 <li role="presentation"><a href="#">Profile</a></li>
   					 <li role="presentation"><a href="#">Messages</a></li>
   					 <li role="presentation"><a href="#">Profile</a></li>

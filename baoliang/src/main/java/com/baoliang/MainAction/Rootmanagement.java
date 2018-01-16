@@ -85,4 +85,16 @@ public class Rootmanagement extends ActionSupport {
 		
 		return SUCCESS;
 	}
+	/**
+	 * 修改管理员信息
+	 * @return
+	 */
+	public String editinfo()
+	{
+		
+		ApplicationContext context= new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
+		ManagerDaoImp mg= (ManagerDaoImp) context.getBean("ManagerDaoImp");
+		mg.updateinfo(getPhone(), getName());
+		return SUCCESS;
+	}
 }

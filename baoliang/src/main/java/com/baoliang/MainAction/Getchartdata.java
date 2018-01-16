@@ -103,6 +103,12 @@ public class Getchartdata extends ActionSupport{
 			jsonString=jsontools.tojsonForNoArray(apc3.findAll(getIndex()), Application.class);
 			System.out.println(jsonString);
 			break;
+		case 4:
+			ApplicationContext context4 = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
+			ApplicationDaoImp apc4= (ApplicationDaoImp) context4.getBean("ApplicationDaoImp");
+			jsonString=jsontools.tojsonForNoArray(apc4.findAll("2"), Application.class);
+			System.out.println(jsonString);
+			break;
 		}
 		}catch(Exception e)
 		{

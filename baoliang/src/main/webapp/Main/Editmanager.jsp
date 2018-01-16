@@ -6,16 +6,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="Lib/jquery.min.js"></script>
+<link href="Main/css/Editmanager.css" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body>
-	<form class="formtable">
+	<form class="formtable" id="formtable">
             <label >电话</label>
-            <input type="text" value='<s:property value="phone"/>' readonly="readonly"/>
+            <input name="phone" type="text" value='<s:property value="phone"/>' readonly="readonly"/>
             <label  class="control-label">姓名</label>
-            <input type="text" value='<s:property value="name"/>' />
-   
+            <input name="name" type="text" value='<s:property value="name"/>' />
+   			<input id="subbtn" type="button" value="提交" onclick="editinfo()"/>
 	</form>
-	<input type="button" value="提交" onclick="editinfo()"/>
+	<script type="text/javascript" src="Main/js/Edimanager.js"></script>
 </body>
 </html>

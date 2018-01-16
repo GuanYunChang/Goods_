@@ -41,6 +41,10 @@
 	<action name="editemanager" class="com.baoliang.MainAction.Rootmanagement" method="editemanager">
 		<result name="success" type="json"></result>
 	</action>
+	<!-- 修改管理员信息 -->
+	<action name="editinfo" class="com.baoliang.MainAction.Rootmanagement" method="editformanager">
+		<result name="success" type="json"></result>
+	</action>
 	
 </package>
 <package name="com.baoliang.siderbaraction.Managerinfoaction" extends="json-default">
