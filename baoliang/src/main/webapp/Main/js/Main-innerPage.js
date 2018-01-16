@@ -127,7 +127,7 @@ function addtabledata(dataarray,tableindex,page)
 	var end=start+pagesum;
 	
 	if(end>sumcounts)
-		end=sumcounts-start;
+		end=sumcounts;
 	//alert(""+start+":"+end);
 	switch(tableindex)
 	{

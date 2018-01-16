@@ -1,3 +1,4 @@
+var btnindex=1;
 $(function(){
 	$('#aptableno').show();
 	$('#aptableyes').hide();
@@ -7,12 +8,16 @@ $(function(){
 
 function selectbtn(index)
 {
+	
+	btnindex=index;
 	switch(index)
 	{
 	case 1:
+		
 		$('#aptableno').show();
 		$('#aptableyes').hide();
 		adddata(1,1);
+		//document.getElementById("pageshow").innerHTML=table1count;
 		break;
 	case 2:
 		$('#aptableno').hide();
@@ -61,10 +66,10 @@ function addtabledata(dataarray,tableindex,page)
 		{
 		switch(tableindex){
 		case 1:
-			table1count++;
+			table1count--;
 			break;
 		case 4:
-			table2count++;
+			table2count--;
 			break;
 		
 		}
@@ -77,8 +82,8 @@ function addtabledata(dataarray,tableindex,page)
 	var end=start+pagesum;
 	
 	if(end>sumcounts)
-		end=sumcounts-start;
-	//alert(""+start+":"+end);
+		end=sumcounts;
+	alert(""+start+":"+end);
 	switch(tableindex)
 	{
 	case 1:
@@ -104,13 +109,15 @@ function addtabledata(dataarray,tableindex,page)
 				+'<td class="tdw">'+dataarray[i].start+'</td>'
 				+'<td class="tdw">'+dataarray[i].destination+'</td>'
 				+'<td class="tdw">'
-				+'<input type="button" onclick="deleted('+dataarray[i].acnum+')" value="删除"/>'
-				+'<input type="button" onclick="edit('+dataarray[i].acnum+')" value="编辑"/>'
+				+'<input type="button" onclick="deleted(\''+dataarray[i].acnum+'\')" value="删除"/>'
+				+'<input type="button" onclick="edit(\''+dataarray[i].acnum+'\',\''+dataarray[i].boss
+				+'\',\''+dataarray[i].phone+'\',\''+dataarray[i].goods+'\',\''+dataarray[i].weight+'\',\''+dataarray[i].start
+				+'\',\''+dataarray[i].destination+'\')" value="编辑"/>'
 				+'</td></tr>';
 				
 				
 			}
-		//document.getElementById("pageshow").innerHTML=table1count;
+		document.getElementById("pageshow").innerHTML=table1count;
 		document.getElementById("aptableno").innerHTML=str;
 		break;
 	case 4:
@@ -140,14 +147,81 @@ for(i=start;i<end;i++)
 		+'<td>'+dataarray[i].car+'</td>'
 		+'<td>'+dataarray[i].drivernum+'</td>'
 		+'<td class="tdw">'
-		+'<input type="button" onclick="deleted('+dataarray[i].acnum+')" value="删除"/>'
-		+'<input type="button" onclick="edit('+dataarray[i].acnum+')" value="编辑"/>'
+		+'<input type="button" onclick="deleted(\''+dataarray[i].acnum+'\')" value="删除"/>'
+		+'<input type="button" onclick="editfortableyes(\''+dataarray[i].acnum+'\',\''+dataarray[i].boss
+		+'\',\''+dataarray[i].phone+'\',\''+dataarray[i].goods+'\',\''+dataarray[i].weight+'\',\''+dataarray[i].start
+		+'\',\''+dataarray[i].destination+'\',\''+dataarray[i].car+'\',\''+dataarray[i].drivernum+'\')" value="编辑"/>'
 		+'</td></tr>';
 		
 		
 	}
-//document.getElementById("pageshow").innerHTML=table1count;
+document.getElementById("pageshow").innerHTML=table2count;
 document.getElementById("aptableyes").innerHTML=str;
 break;
+	}
+}
+
+function deleted(acnum)
+{
+	alert(acnum);
+	$.ajax({
+		type:"post",
+		url:"deletedforpalication",
+		data:"acnum="+acnum,
+		dataType:"json",
+		success:function(data)
+		{
+			alert("删除成功");
+			document.location.reload();
+		},
+		error:function(){
+			
+			alert("删除失败");
+		}
+		
+	});
+}
+
+function edit(acnum,boss,phone,goods,start,destination,weight)
+{
+	
+	window.location.href="http://"+window.location.hostname+":"+window.location.port+"/baoliang/editfortableno?"+"acnum="+acnum+"&boss="+boss+"&phone="+phone+"&goods="+goods+"&start="+start+"&destination="+destination+"&weight="+weight;
+}
+
+function editfortableyes(acnum,boss,phone,goods,start,destination,weight,car,drivernum)
+{
+	
+	window.location.href="http://"+window.location.hostname+":"+window.location.port+"/baoliang/editforableyes?"+"acnum="+acnum+"&boss="+boss+"&phone="+phone+"&goods="+goods+"&start="+start+"&destination="+destination+"&weight="+weight+"&car="+car+"&drivernum="+drivernum;
+}
+
+function preview()
+{
+	switch(btnindex)
+	{
+	case 1:
+		adddata(1,--table1count);
+		//document.getElementById("pageshow").innerHTML=table1count;
+		document.location.reload();
+		break;
+	case 2:
+		adddata(4,--table2count);
+		//document.getElementById("pageshow").innerHTML=table2count;
+		document.location.reload();
+		break;
+	
+	}
+}
+
+function next()
+{
+	switch(btnindex)
+	{
+	case 1:
+		adddata(1,++table1count);
+		break;
+	case 2:
+		adddata(4,++table2count);
+		break;
+	
 	}
 }

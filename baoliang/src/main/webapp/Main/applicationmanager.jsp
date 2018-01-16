@@ -32,6 +32,12 @@
 	<table  id="aptableyes"class="table table-hover aptableyes">
 		
 	</table>
+	
+	<div class="pagebtn">
+	<button type="button" class="btn btn-default" onclick="preview()">上一页</button>
+	<button type="button" class="btn btn-default" onclick="next()">下一页</button>
+	<span class="label label-default" id="pageshow"></span>
+</div>
 	<script type="text/javascript" src="js/applicationmanager.js"></script>
 </body>
 	
