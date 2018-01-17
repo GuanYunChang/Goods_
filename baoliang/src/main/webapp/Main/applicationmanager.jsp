@@ -79,6 +79,31 @@
   		</center>
 	</form>
 
+	
+	
+	<div id="searchap" class="searchap">
+		<div class="input-group">
+      		<input id="searchinput" type="text" class="form-control" placeholder="Search for...">
+     		 <span class="input-group-btn">
+        		<button class="btn btn-default" type="button" onclick="searchbyacnum('1')">按订单号查找</button>
+     		</span>
+     		</div>
+     <table class="table table-hover searchform" id="searchform">
+  		<tr>
+			<td>货运单号</td>
+			<td>订单人</td>
+			<td>订单人电话</td>
+			<td>货物</td>
+			<td>重量</td>
+			<td>始发地</td><td>目的地</td>
+			<td>司机</td>
+			<td>车牌</td>
+			<td>状态</td>
+			<td>操作</td>
+			</tr>
+	</table>
+	</div>
+	
 	<div class="pagebtn" id="pagebtn">
 	<button type="button" class="btn btn-default" onclick="preview()">上一页</button>
 	<button type="button" class="btn btn-default" onclick="next()">下一页</button>

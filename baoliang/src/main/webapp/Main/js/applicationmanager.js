@@ -4,6 +4,7 @@ $(function(){
 	$('#aptableyes').hide();
 	$('#formtable').hide();
 	$('#pagebtn').show();
+	$('#searchap').hide();
 	adddata(1,1);
 	
 })
@@ -20,6 +21,7 @@ function selectbtn(index)
 		$('#aptableyes').hide();
 		$('#formtable').hide();
 		$('#pagebtn').show();
+		$('#searchap').hide();
 		adddata(1,1);
 		//document.getElementById("pageshow").innerHTML=table1count;
 		break;
@@ -28,6 +30,7 @@ function selectbtn(index)
 		$('#aptableyes').show();
 		$('#formtable').hide();
 		$('#pagebtn').show();
+		$('#searchap').hide();
 		adddata(4,1);
 		break;
 	case 3:
@@ -35,8 +38,15 @@ function selectbtn(index)
 		$('#aptableyes').hide();
 		$('#formtable').show();
 		$('#pagebtn').hide();
+		$('#searchap').hide();
 		break;
-	
+	case 4:
+		$('#searchap').show();
+		$('#aptableno').hide();
+		$('#aptableyes').hide();
+		$('#formtable').hide();
+		$('#pagebtn').show();
+		break;
 	}
 }
 
@@ -221,6 +231,10 @@ function preview()
 		//document.getElementById("pageshow").innerHTML=table2count;
 		//document.location.reload();
 		break;
+	case 4:
+		searpage--;
+		searchbyacnum('0');
+		break;
 	
 	}
 }
@@ -234,6 +248,10 @@ function next()
 		break;
 	case 2:
 		adddata(4,++table2count);
+		break;
+	case 4:
+		searpage++;
+		searchbyacnum('0');
 		break;
 	
 	}
@@ -258,6 +276,99 @@ function commitapplication()
 		error:function(){
 			
 			alert("提交失败");
+		}
+		
+	});
+}
+
+/**
+ * 查找按照订单号
+ * @returns
+ */
+var searchcount=1;
+var searpage=1;
+function searchbyacnum(flag)
+{
+	if(flag=="1")
+		{
+		searpage=1;
+		searchcount=1;
+		}
+		
+	var searchinput=$('#searchinput').val();
+	$.ajax({
+		type:"post",
+		url:"searchbyacnum",
+		data:"acnum="+searchinput,
+		dataType:"json",
+		success:function(data)
+		{
+			var dataarray = eval('(' + data.jsonString + ')');
+			var i;
+			var str='';
+			var sumcounts=dataarray.length;
+			var intpagecount=Math.ceil(sumcounts/pagesum) ;
+			if(searpage>intpagecount)
+				{
+				searchcount--;
+				alert("已经到最后了");
+				return;
+				}
+			if(searpage>intpagecount)
+				searpage=intpagecount;
+			var start=(searpage-1)*pagesum;
+			var end=start+pagesum;
+			
+			if(end>sumcounts)
+				end=sumcounts;
+			var statue='';
+			
+			str='<tr>'
+				+'<td>货运单号</td>'
+				+'<td>订单人</td>'
+				+'<td>订单人电话</td>'
+				+'<td>货物</td>'
+				+'<td>重量</td>'
+				+'<td>始发地</td><td>目的地</td>'
+				+'<td>司机</td>'
+				+'<td>车牌</td>'
+				+'<td>状态</td>'
+				+'<td>操作</td>'
+				+'</tr>';
+			
+	for(i=start;i<end;i++)
+		{
+			if(dataarray[i].statue=='1')
+				statue='未分配';
+			else if(dataarray[i].statue=='2')
+				statue='进行中';
+			else 
+				statue='已完成';
+			str=str+'<tr><td class="tdw">'+dataarray[i].acnum+'</td>'
+			+'<td class="tdw"> '+dataarray[i].boss+'</td>'
+			+'<td class="tdw">'+dataarray[i].phone+'</td>'
+			+'<td class="tdw">'+dataarray[i].goods+'</td>'
+			+'<td class="tdw">'+dataarray[i].weight+'</td>'
+			+'<td class="tdw">'+dataarray[i].start+'</td>'
+			+'<td class="tdw">'+dataarray[i].destination+'</td>'
+			+'<td>'+dataarray[i].drivernum+'</td>'
+			+'<td>'+dataarray[i].car+'</td>'
+			+'<td>'+statue+'</td>'
+			+'<td class="tdw">'
+			+'<input type="button" onclick="deleted(\''+dataarray[i].acnum+'\')" value="删除"/>'
+			+'<input type="button" onclick="editfortableyes(\''+dataarray[i].acnum+'\',\''+dataarray[i].boss
+			+'\',\''+dataarray[i].phone+'\',\''+dataarray[i].goods+'\',\''+dataarray[i].start+'\',\''+dataarray[i].destination
+			+'\',\''+dataarray[i].weight+'\',\''+dataarray[i].car+'\',\''+dataarray[i].drivernum+'\')" value="编辑"/>'
+			+'</td></tr>';
+			
+			
+		}
+	document.getElementById("pageshow").innerHTML=searpage;
+	document.getElementById("searchform").innerHTML=str;
+		},
+		error:function(){
+			
+			alert("查找失败");
 		}
 		
 	});

@@ -55,5 +55,15 @@ public class ApplicationDaoImp extends JdbcDaoSupport implements ApplicationDao 
 		
 		return counts;
 	}
+	
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public List<Application> findAllbyacmnum(String acnum) {
+		
+		String str= "select * from application where acnum like'%"+acnum+"%'";
+		return this.getJdbcTemplate().query(str,new BeanPropertyRowMapper(Application.class));
+		
+	}
+	
 
 }

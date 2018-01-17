@@ -62,6 +62,10 @@
 		<result name="success" type="json"></result>
 	</action>
 	
+	<action name="searchbyacnum" class="com.baoliang.MainAction.applicationmanager" method="searchbyacnum">
+		<result name="success" type="json"></result>
+	</action>
+	
 </package>
 <package name="com.baoliang.siderbaraction.Managerinfoaction" extends="json-default">
 	<action name="RegisterManager" class="com.baoliang.siderbaraction.Managerinfoaction" method="addManager">

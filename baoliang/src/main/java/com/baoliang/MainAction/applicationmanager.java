@@ -4,10 +4,13 @@
  **/
 package com.baoliang.MainAction;
 
+import org.json.JSONException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.baoliang.Model.Application;
 import com.baoliang.Model.ApplicationDaoImp;
+import com.baoliang.Tools.jsontools;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class applicationmanager extends ActionSupport {
@@ -22,6 +25,13 @@ public class applicationmanager extends ActionSupport {
 	private String statue;
 	private String car;
 	private String weight;
+	private String jsonString;
+	public String getJsonString() {
+		return jsonString;
+	}
+	public void setJsonString(String jsonString) {
+		this.jsonString = jsonString;
+	}
 	public String getAcnum() {
 		return acnum;
 	}
@@ -125,6 +135,14 @@ public class applicationmanager extends ActionSupport {
 		ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
 		ApplicationDaoImp ap= (ApplicationDaoImp) context.getBean("ApplicationDaoImp");
 		ap.save(boss, phone, goods, start, destination, "1", weight);
+		return SUCCESS;
+	}
+	
+	public  String searchbyacnum() throws JSONException, IllegalArgumentException, IllegalAccessException
+	{
+		ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
+		ApplicationDaoImp ap= (ApplicationDaoImp) context.getBean("ApplicationDaoImp");
+		setJsonString(jsontools.tojsonForNoArray(ap.findAllbyacmnum(acnum), Application.class));
 		return SUCCESS;
 	}
 	
