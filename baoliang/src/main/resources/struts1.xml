@@ -50,6 +50,18 @@
 		<result name="success" type="json"></result>
 	</action>
 	
+	<!-- 保存订单 -->
+	<action name="saveappliaction" class="com.baoliang.MainAction.applicationmanager" method="saveappliaction">
+		<result name="success" type="json"></result>
+	</action>
+	
+	<action name="saveappliaction" class="com.baoliang.MainAction.applicationmanager" method="saveappliaction">
+		<result name="success" type="json"></result>
+	</action>
+	<action name="commitapplication" class="com.baoliang.MainAction.applicationmanager" method="commitapplication">
+		<result name="success" type="json"></result>
+	</action>
+	
 </package>
 <package name="com.baoliang.siderbaraction.Managerinfoaction" extends="json-default">
 	<action name="RegisterManager" class="com.baoliang.siderbaraction.Managerinfoaction" method="addManager">
@@ -88,6 +100,10 @@
 			<result name="success">/Main/Editforinfotableyes.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		
+		
+		
+		
 	</package>
 
 	</struts>

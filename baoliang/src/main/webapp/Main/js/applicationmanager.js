@@ -2,6 +2,8 @@ var btnindex=1;
 $(function(){
 	$('#aptableno').show();
 	$('#aptableyes').hide();
+	$('#formtable').hide();
+	$('#pagebtn').show();
 	adddata(1,1);
 	
 })
@@ -16,13 +18,23 @@ function selectbtn(index)
 		
 		$('#aptableno').show();
 		$('#aptableyes').hide();
+		$('#formtable').hide();
+		$('#pagebtn').show();
 		adddata(1,1);
 		//document.getElementById("pageshow").innerHTML=table1count;
 		break;
 	case 2:
 		$('#aptableno').hide();
 		$('#aptableyes').show();
+		$('#formtable').hide();
+		$('#pagebtn').show();
 		adddata(4,1);
+		break;
+	case 3:
+		$('#aptableno').hide();
+		$('#aptableyes').hide();
+		$('#formtable').show();
+		$('#pagebtn').hide();
 		break;
 	
 	}
@@ -83,7 +95,7 @@ function addtabledata(dataarray,tableindex,page)
 	
 	if(end>sumcounts)
 		end=sumcounts;
-	alert(""+start+":"+end);
+	//alert(""+start+":"+end);
 	switch(tableindex)
 	{
 	case 1:
@@ -111,8 +123,8 @@ function addtabledata(dataarray,tableindex,page)
 				+'<td class="tdw">'
 				+'<input type="button" onclick="deleted(\''+dataarray[i].acnum+'\')" value="删除"/>'
 				+'<input type="button" onclick="edit(\''+dataarray[i].acnum+'\',\''+dataarray[i].boss
-				+'\',\''+dataarray[i].phone+'\',\''+dataarray[i].goods+'\',\''+dataarray[i].weight+'\',\''+dataarray[i].start
-				+'\',\''+dataarray[i].destination+'\')" value="编辑"/>'
+				+'\',\''+dataarray[i].phone+'\',\''+dataarray[i].goods+'\',\''+dataarray[i].start+'\',\''+dataarray[i].destination
+				+'\',\''+dataarray[i].weight+'\')" value="编辑"/>'
 				+'</td></tr>';
 				
 				
@@ -144,13 +156,13 @@ for(i=start;i<end;i++)
 		+'<td class="tdw">'+dataarray[i].weight+'</td>'
 		+'<td class="tdw">'+dataarray[i].start+'</td>'
 		+'<td class="tdw">'+dataarray[i].destination+'</td>'
-		+'<td>'+dataarray[i].car+'</td>'
 		+'<td>'+dataarray[i].drivernum+'</td>'
+		+'<td>'+dataarray[i].car+'</td>'	
 		+'<td class="tdw">'
 		+'<input type="button" onclick="deleted(\''+dataarray[i].acnum+'\')" value="删除"/>'
 		+'<input type="button" onclick="editfortableyes(\''+dataarray[i].acnum+'\',\''+dataarray[i].boss
-		+'\',\''+dataarray[i].phone+'\',\''+dataarray[i].goods+'\',\''+dataarray[i].weight+'\',\''+dataarray[i].start
-		+'\',\''+dataarray[i].destination+'\',\''+dataarray[i].car+'\',\''+dataarray[i].drivernum+'\')" value="编辑"/>'
+		+'\',\''+dataarray[i].phone+'\',\''+dataarray[i].goods+'\',\''+dataarray[i].start+'\',\''+dataarray[i].destination
+		+'\',\''+dataarray[i].weight+'\',\''+dataarray[i].car+'\',\''+dataarray[i].drivernum+'\')" value="编辑"/>'
 		+'</td></tr>';
 		
 		
@@ -163,7 +175,7 @@ break;
 
 function deleted(acnum)
 {
-	alert(acnum);
+	
 	$.ajax({
 		type:"post",
 		url:"deletedforpalication",
@@ -186,7 +198,8 @@ function edit(acnum,boss,phone,goods,start,destination,weight)
 {
 	
 	window.location.href="http://"+window.location.hostname+":"+window.location.port+"/baoliang/editfortableno?"+"acnum="+acnum+"&boss="+boss+"&phone="+phone+"&goods="+goods+"&start="+start+"&destination="+destination+"&weight="+weight;
-}
+	alert("http://"+window.location.hostname+":"+window.location.port+"/baoliang/editfortableno?"+"acnum="+acnum+"&boss="+boss+"&phone="+phone+"&goods="+goods+"&start="+start+"&destination="+destination+"&weight="+weight);
+}	
 
 function editfortableyes(acnum,boss,phone,goods,start,destination,weight,car,drivernum)
 {
@@ -201,12 +214,12 @@ function preview()
 	case 1:
 		adddata(1,--table1count);
 		//document.getElementById("pageshow").innerHTML=table1count;
-		document.location.reload();
+		//document.location.reload();
 		break;
 	case 2:
 		adddata(4,--table2count);
 		//document.getElementById("pageshow").innerHTML=table2count;
-		document.location.reload();
+		//document.location.reload();
 		break;
 	
 	}
@@ -224,4 +237,28 @@ function next()
 		break;
 	
 	}
+}
+
+/**
+ * 提交订单
+ * @returns
+ */
+function commitapplication()
+{
+	var parm = $("#formtable").serialize();
+	$.ajax({
+		type:"post",
+		url:"commitapplication",
+		data:parm,
+		dataType:"json",
+		success:function(data)
+		{
+			alert("提交成功");
+		},
+		error:function(){
+			
+			alert("提交失败");
+		}
+		
+	});
 }

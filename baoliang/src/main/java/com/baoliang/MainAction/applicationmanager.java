@@ -110,4 +110,23 @@ public class applicationmanager extends ActionSupport {
 		
 	}
 	
+	public String saveappliaction()
+	{
+		
+		ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
+		ApplicationDaoImp ap= (ApplicationDaoImp) context.getBean("ApplicationDaoImp");
+		ap.update(getAcnum(), getBoss(), getPhone(), getGoods(), getStart(), getDestination(), getWeight());
+		return SUCCESS;
+	}
+	
+	
+	public String commitapplication()
+	{
+		ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
+		ApplicationDaoImp ap= (ApplicationDaoImp) context.getBean("ApplicationDaoImp");
+		ap.save(boss, phone, goods, start, destination, "1", weight);
+		return SUCCESS;
+	}
+	
+	
 }

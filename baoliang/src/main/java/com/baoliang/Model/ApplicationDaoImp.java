@@ -13,9 +13,9 @@ import com.baoliang.Tools.produceacnum;
 
 public class ApplicationDaoImp extends JdbcDaoSupport implements ApplicationDao {
 
-	public void save( String boss, String phone, String goods, String start, String destination,String statue) {
+	public void save( String boss, String phone, String goods, String start, String destination,String statue,String weight) {
 		
-		this.getJdbcTemplate().update("insert into  application(acnum,boss,phone,goods,start,destination,statue) values(?,?,?,?,?,?,?)",new Object[]{produceacnum.getacnum(),boss,phone,goods,start,destination,statue});
+		this.getJdbcTemplate().update("insert into  application(acnum,boss,phone,goods,start,destination,statue,weight,car,drivernum) values(?,?,?,?,?,?,?,?,' ',' ')",new Object[]{produceacnum.getacnum(),boss,phone,goods,start,destination,statue,Double.parseDouble(weight)});
 		
 	}
 	public void modifyfortrans(String drivernum,String car,double weight,String statue,String acnum)
@@ -24,11 +24,14 @@ public class ApplicationDaoImp extends JdbcDaoSupport implements ApplicationDao 
 		this.getJdbcTemplate().update("update application set drivernum= ?,car=?,weight=?,statue=? where acnum=?",new Object[]{drivernum,car,weight,statue,acnum});
 	}
 	//此方法取消更改订单只能通过取消后重新添加
-	public void update(String acnum, String boss, String phone, String goods, String start, String destination) {
+	public void update(String acnum, String boss, String phone, String goods, String start, String destination,String weight) {
 		
-		
+		this.getJdbcTemplate().update("update application set boss=?,phone=?,goods=?,start=?,destination=?,weight=? where acnum=?",new Object[]{boss,phone,goods,start,destination,weight,acnum});
 	}
 
+	public void updatetableyes(String acnum, String boss, String phone, String goods, String start, String destination,String weight,String car,String drivernum) {
+		this.getJdbcTemplate().update("update application set boss=?,phone=?,goods=?,start=?,destination=?,weight=?,car=?,drivernum=? where acnum=?",new Object[]{boss,phone,goods,start,destination,weight,car,drivernum,acnum});
+	}
 	public void delete(String acnum) {
 		this.getJdbcTemplate().update("delete from application where acnum =?",new Object[] {acnum});
 		
