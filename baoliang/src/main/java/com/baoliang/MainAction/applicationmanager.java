@@ -152,7 +152,7 @@ public class applicationmanager extends ActionSupport {
 		ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
 		ApplicationDaoImp ap= (ApplicationDaoImp) context.getBean("ApplicationDaoImp");
 		ap.updatetableyes(acnum, boss, phone, goods, start, destination, weight, car, drivernum);
-		System.out.println(getDrivernum());
+		
 		return SUCCESS;
 	}
 	

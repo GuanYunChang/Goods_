@@ -8,5 +8,8 @@ function rootselectFunc(index)
 		case 2:
 			document.getElementById("frameK").src="Main/applicationmanager.jsp";
 			break;
+		case 3:
+			document.getElementById("frameK").src="Main/Bindapanddriver.jsp";
+			break;
 	}
 }

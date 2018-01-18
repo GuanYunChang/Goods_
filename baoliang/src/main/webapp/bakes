@@ -14,7 +14,29 @@ $.ajax({
 		
 	});
 	
+	
+	AMap.plugin(['AMap.ToolBar', 'AMap.Scale', 'AMap.MapType','AMap.Geocoder','AMap.Autocomplete'], function() {
+    toolBar = new AMap.ToolBar();  //工具条
+    scale = new AMap.Scale();    //比例尺
+    //mapType = new AMap.MapType();   //地图种类
+    map.addControl(toolBar);
+    map.addControl(scale);
+   // map.addControl(mapType);
+})
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	 var parm = $("#userdata").serialize();
+	 
+	 
+	 "http://"+window.location.hostname+":"+window.location.port+"/baoliang/editemanagerforward?phone="+phone+"&name="+name; 
 	 
 	 document.location.reload();
 	 

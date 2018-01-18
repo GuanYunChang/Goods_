@@ -38,11 +38,13 @@
   		<div class="form-group">
     		<label >始发地</label>
    			 <input name="start" value='<s:property value="start"/>' type="text" class="form-control" id="" placeholder="始发地">
+  			<input type="button" onclick="openwin(1)" value="打开地图"/>
   		</div>
   		
   		<div class="form-group">
     		<label >目的地</label>
    			 <input name="destination" value='<s:property value="destination"/>' type="text" class="form-control" id="" placeholder="目的地">
+  			<input type="button" onclick="openwin(2)" value="打开地图"/>
   		</div>
   		<div class="form-group">
     		<label >重量</label>
