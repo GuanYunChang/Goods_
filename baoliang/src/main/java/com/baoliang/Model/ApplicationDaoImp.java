@@ -31,7 +31,9 @@ public class ApplicationDaoImp extends JdbcDaoSupport implements ApplicationDao 
 
 	public void updatetableyes(String acnum, String boss, String phone, String goods, String start, String destination,String weight,String car,String drivernum) {
 		this.getJdbcTemplate().update("update application set boss=?,phone=?,goods=?,start=?,destination=?,weight=?,car=?,drivernum=? where acnum=?",new Object[]{boss,phone,goods,start,destination,weight,car,drivernum,acnum});
+		System.out.println(car);
 	}
+	
 	public void delete(String acnum) {
 		this.getJdbcTemplate().update("delete from application where acnum =?",new Object[] {acnum});
 		
