@@ -107,12 +107,15 @@ public class Refresheforbindtable  extends ActionSupport {
 		Integer start=(getPagesum()-1)*getIndexup()+1;
 		if(start<1)
 			start=1;
+		
 		Integer end=start+getPagesum();
 		if(end>sum)
 		{
 			end=sum;
-			
+			setFlag("true");
 		}
+		if(start>end-getPagesum())
+			start=end-getPagesum();
 			objlist=objlist.subList(start, end);
 			System.out.println("start:"+start+",end:"+end);
 		setDataup(jsontools.tojsonForNoArray(objlist,Application.class ));

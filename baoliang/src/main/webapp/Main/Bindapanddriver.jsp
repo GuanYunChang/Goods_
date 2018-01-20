@@ -26,7 +26,7 @@
 		<td>重量</td>
 	</tr>
 </table>
-<input type="button" value="上一页" >
+<input type="button" value="上一页" onclick="preview()">
 <input type="button" value="下一页" onclick="next()">
 <h5 id="uppage">第1页</h5>
 <hr/>

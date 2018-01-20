@@ -11,7 +11,7 @@ $(function(){
 	
 	
 	refreshup();
-	setv=setInterval("refreshup()",3000);
+	setv=setInterval("refreshup()",2000);
 });
 function refreshup()
 {
@@ -19,7 +19,7 @@ function refreshup()
 	$.ajax({
 		type:"post",
 		url:"refreshtableup",
-		data:"indexup="+tableup+"&pagesum=2",
+		data:"indexup="+tableup+"&pagesum=5",
 		dataType:"json",
 		async:true,
 		timeout:5000,
@@ -81,42 +81,15 @@ function next()
 	tableup++;
 	console.log(tableup);
 	clearInterval(setv);
-	setv=setInterval("refreshup()",3000);
+	setv=setInterval("refreshup()",2000);
 	//refreshup();
 }
 function preview()
 {
-	if(tabledown>1)
-		{
-
-			$.ajax({
-				type:"post",
-				url:"addpreview",
-				data:"index="+tabledown,
-				dataType:"json",
-				success:function(data)
-				{
-					tabledown--;
-					document.getElementById('downpage').innerHTML="第"+tabledown+"页";
-					var str='<tr>'
-						+'<td>司机编号</td>'
-						+'<td>姓名</td>'
-						+'<td>电话</td>'
-						+'<td>车号</td>'
-						+'<td>装载量</td>'
-						+'<td>选择</td>'
-					+'</tr>';
-				
-				},
-				error:function(){
-					
-					alert("获取数据失败");
-				}
-				
-			});
-		
-		
-		}
+	tableup--;
+	console.log(tableup);
+	clearInterval(setv);
+	setv=setInterval("refreshup()",2000);
 }
 function addtableup()
 {
