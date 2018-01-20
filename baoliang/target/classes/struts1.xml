@@ -68,7 +68,9 @@
 	<action name="saveappliactionyes" class="com.baoliang.MainAction.applicationmanager" method="saveappliactionyes">
 		<result name="success" type="json"></result>
 	</action>
-	
+	<action name="refreshtableup" class="com.baoliang.MainAction.Refresheforbindtable" method="refreshtableup">
+	<result name="success" type="json"></result>
+	</action>
 	
 </package>
 <package name="com.baoliang.siderbaraction.Managerinfoaction" extends="json-default">

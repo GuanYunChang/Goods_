@@ -29,7 +29,7 @@ $.ajax({
 	
 	
 	
-	
+	mydata = eval('(' + data.jsonString + ')');
 	
 	
 	
