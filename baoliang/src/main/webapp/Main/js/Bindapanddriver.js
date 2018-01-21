@@ -5,7 +5,6 @@
 }*/
 
 var tableup=1;
-var tabledown=0;
 var setv;
 $(function(){
 	
@@ -51,7 +50,7 @@ function refreshup()
 			var i;
 			for(i=0;i<mydata.length;i++)
 				{
-			 str=str+'<tr>'
+			 str=str+'<tr onclick="selectcar('+'\''+mydata[i].acnum+'\''+')" >'
 			 +'<td>'+mydata[i].acnum+'</td>'
 			 +'<td>'+mydata[i].boss+'</td>'
 			 +'<td>'+mydata[i].phone+'</td>'
@@ -75,6 +74,11 @@ function refreshup()
 		
 	});
 	
+}
+
+function selectcar(acnum)
+{
+	window.location.href="http://"+window.location.hostname+":"+window.location.port+"/baoliang/Changebind?acnum="+acnum;
 }
 function next()
 {

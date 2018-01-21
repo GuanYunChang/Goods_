@@ -18,6 +18,20 @@ public class ApplicationDaoImp extends JdbcDaoSupport implements ApplicationDao 
 		this.getJdbcTemplate().update("insert into  application(acnum,boss,phone,goods,start,destination,statue,weight,car,drivernum) values(?,?,?,?,?,?,?,?,' ',' ')",new Object[]{produceacnum.getacnum(),boss,phone,goods,start,destination,statue,Double.parseDouble(weight)});
 		
 	}
+	public void lockapplication(String acnum)
+	{
+		this.getJdbcTemplate().update("update application set lockversion=2 where acnum=?",new String[] {acnum});
+		
+	}
+	public void setdriverforapplication(String carnum,String drivernum,String acnum)
+	{
+		this.getJdbcTemplate().update("update application set statue='2',car=?,drivernum=? where acnum=?",new Object[] {carnum,drivernum,acnum});
+		
+	}
+	public void unlockapplication(String acnum) {
+		
+		this.getJdbcTemplate().update("update application set lockversion=1 where acnum=?",new String[] {acnum});
+	}
 	public void modifyfortrans(String drivernum,String car,double weight,String statue,String acnum)
 	{
 		
@@ -48,6 +62,13 @@ public class ApplicationDaoImp extends JdbcDaoSupport implements ApplicationDao 
 	public List<Application> findAll(String statue) {
 		
 		return this.getJdbcTemplate().query("select * from application where statue=?", new Object[]{statue},new BeanPropertyRowMapper(Application.class));
+		
+	}
+	
+	
+public List<Application> findAllunlock(String statue) {
+		
+		return this.getJdbcTemplate().query("select * from application where statue=? and lockversion=1", new Object[]{statue},new BeanPropertyRowMapper(Application.class));
 		
 	}
 	

@@ -29,7 +29,7 @@
 <input type="button" value="上一页" onclick="preview()">
 <input type="button" value="下一页" onclick="next()">
 <h5 id="uppage">第1页</h5>
-<hr/>
+<!-- <hr/>
 <h3>可分配的车辆</h3>
 <table id="apcar" class="table table-hover apcar">
 	<tr>
@@ -43,7 +43,7 @@
 </table>
 <input type="button" value="上一页">
 <input type="button" value="下一页">
-<h5  id="downpage">第1页</h5>
+<h5  id="downpage">第1页</h5> -->
 <script type="text/javascript" src="js/Bindapanddriver.js"></script>
 </body>
 </html>

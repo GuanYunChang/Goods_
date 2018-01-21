@@ -71,12 +71,22 @@
 	<action name="refreshtableup" class="com.baoliang.MainAction.Refresheforbindtable" method="refreshtableup">
 	<result name="success" type="json"></result>
 	</action>
+	<action name="refreshtabledown" class="com.baoliang.MainAction.Refresheforbindtable" method="refreshtabledown">
+		<result name="success" type="json"></result>
+	</action>
+	
+	<action name="selectdriver" class="com.baoliang.MainAction.Refresheforbindtable" method="selectdriver">
+		<result name="success" type="json"></result>
+	</action>
 	
 </package>
 <package name="com.baoliang.siderbaraction.Managerinfoaction" extends="json-default">
 	<action name="RegisterManager" class="com.baoliang.siderbaraction.Managerinfoaction" method="addManager">
 		<result name="success" type="json"></result>
 	</action>
+
+
+
 
 </package>
 <!-- 过渡页面 -->
@@ -112,7 +122,10 @@
 		</action>
 		
 		
-		
+		<action name="Changebind" class="com.baoliang.MainAction.Refresheforbindtable" method="selectcar">
+		<result name="success">/Main/Changebindcar.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 		
 	</package>
 

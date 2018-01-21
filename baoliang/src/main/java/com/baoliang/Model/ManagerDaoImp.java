@@ -46,6 +46,7 @@ public class ManagerDaoImp extends JdbcDaoSupport implements ManagerDao{
 		return this.getJdbcTemplate().queryForObject("select * from Manager where phone= ?",new Object[] {phone}, Manager.class);
 	}
 
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List<Manager> findAll() {
 		

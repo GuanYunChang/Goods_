@@ -22,6 +22,11 @@ public class DriversDaoImp extends JdbcDaoSupport implements DriversDao{
 		
 	}
 
+	public void setStatue(String driversnums)
+	{
+		this.getJdbcTemplate().update("update drivers set statue='3' where drivernums='"+driversnums+"'");
+		
+	}
 	public void update(String drivernums, String name, String phone, String pass, String carnum, double cargo,
 			String statue, String sumlength) {
 		this.getJdbcTemplate().update("update drivers set pass=? where drivernums=?",new Object[] {pass,drivernums});
@@ -43,6 +48,9 @@ public class DriversDaoImp extends JdbcDaoSupport implements DriversDao{
 		
 		return this.getJdbcTemplate().query("select * from drivers where statue=?", new Object[]{statue},new BeanPropertyRowMapper(Drivers.class));
 	}
+	
+	
+	
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public boolean confirm(String drivernums, String pass) {
