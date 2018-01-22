@@ -18,6 +18,12 @@ public class bossDaoImp extends JdbcDaoSupport implements bossDao{
 		this.getJdbcTemplate().update("insert into boss(bossphone,bosspass,bossname) values(?,?,?);", new Object[] {phone,pass,name});
 		
 	}
+	public String slectname(String phone)
+	{
+		
+		
+		return this.getJdbcTemplate().queryForObject("select bossname from boss where bossphone=?",new Object[] {phone},String.class);
+	}
 
 	public void update(String passold, String phone, String pass, String name) {
 		this.getJdbcTemplate().update("update boss set bosspass= ? where bossphone = ? and bossname= ?",new Object[] {pass,phone,passold});

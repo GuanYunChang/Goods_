@@ -176,6 +176,7 @@ public class Refresheforbindtable  extends ActionSupport {
 		Timer selecttime=new Timer();
 		Locktask task= new Locktask();
 		task.setTasktimer(selecttime);
+		task.setAcnum(getAcnum());
 		ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
 		ApplicationDaoImp apc= (ApplicationDaoImp) context.getBean("ApplicationDaoImp");
 		apc.lockapplication(getAcnum());//锁住订单

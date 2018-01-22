@@ -4,7 +4,15 @@
     "http://struts.apache.org/dtds/struts-2.5.dtd">  
     
     <struts>
+    <package  name="com.baoliang.Useraction.Getdata" extends="json-default" >
+    <action name="getuserdata" class="com.baoliang.Useraction.Getdata" method="getdata">
+    <result name="success" type="json"></result>
+    </action>
+    <action name="deleteforuser" class="com.baoliang.Useraction.Getdata" method="deleteforuser">
+    <result name="success" type="json"></result>
+    </action>
     
+    </package>
   
 	<package  name="com.baoliang.Login.Login" extends="json-default" >
 		<action name="Login" class="com.baoliang.Login.Login">
@@ -96,7 +104,7 @@
 			<result name="error">/error.jsp</result>
 		</action>
 		<action name="Logforward1" class="com.baoliang.Login.Logforward" method="forward1">
-			<result name="success">/success.jsp</result>
+			<result name="success">/User/Main.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 		<action name="rootforward" class="com.baoliang.Login.Logforward" method="rootlogin">

@@ -26,7 +26,7 @@ $.ajax({
 	
 	
 	
-	
+	document.getElementById("boss")
 	
 	
 	mydata = eval('(' + data.jsonString + ')');

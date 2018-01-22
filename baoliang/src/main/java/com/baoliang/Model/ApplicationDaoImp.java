@@ -88,5 +88,36 @@ public List<Application> findAllunlock(String statue) {
 		
 	}
 	
+	
+	//以下用于用户获取数据信息
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public List<Application> FindApplicationByUserPhoneForFinishedApplication(String phone) {
+		
+		String str= "select * from application where statue='2' and phone='"+phone+"'";
+		System.out.println(str);
+		return this.getJdbcTemplate().query(str,new BeanPropertyRowMapper(Application.class));
+		
+	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public List<Application> FindApplicationByUserPhoneForNotFinishedApplication(String phone) {
+		String str= "select * from application where statue='1' and phone='"+phone+"'";
+		System.out.println(str);
+		return this.getJdbcTemplate().query(str,new BeanPropertyRowMapper(Application.class));
+		
+		
+		
+		
+	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public List<Application> FindApplicationByUserPhoneForFinishedDistributionApplication(String phone) {
+		
+		String str= "select * from application where statue='3' and phone='"+phone+"'";
+		System.out.println(str);
+		return this.getJdbcTemplate().query(str,new BeanPropertyRowMapper(Application.class));
+		
+	}
 
 }

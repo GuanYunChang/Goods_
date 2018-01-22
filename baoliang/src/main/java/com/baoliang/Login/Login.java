@@ -66,7 +66,7 @@ public class Login extends ActionSupport {
 			HttpServletRequest request = ServletActionContext.getRequest(); 
 			HttpSession session = request.getSession(); 
 			ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
-			System.out.println(getCharacter());
+			System.out.println("现在登录的角色是"+getCharacter());
 			switch(Integer.parseInt(getCharacter()))
 			{
 			case 1: 
@@ -90,7 +90,7 @@ public class Login extends ActionSupport {
 					flag=0;
 					System.out.println("登录失败========"+getName()+"========="+getPassword());
 					return ERROR;
-				}
+				}break;
 				
 			case 3:
 				rootManagerDaoImp rm= (rootManagerDaoImp) context.getBean("rootManagerDaoImp");

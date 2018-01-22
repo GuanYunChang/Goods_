@@ -14,7 +14,7 @@ $('#submitbtn').click(function() {
                     var c3=document.getElementById('character3');
                 $.ajax({ 
                     type : "post",
-                    url : "${pageContext.request.contextPath}/Login",
+                    url : "Login",
                     data : parm,
                     dataType:"json",
             
