@@ -50,7 +50,7 @@
 			</div>
  	 </div>
 </div>
-	<script type="text/javascript" src="Main/js/Main-super.js"></script>
-	<script type="text/javascript" src="Main/js/root.js"></script>
+	<script type="text/javascript" src="Main/js/Main-super.js" charset="gbk"></script>
+	<script type="text/javascript" src="Main/js/root.js" charset="gbk"></script>
 </body>
 </html>

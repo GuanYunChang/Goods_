@@ -4,7 +4,7 @@
     "http://struts.apache.org/dtds/struts-2.5.dtd">  
     
     <struts>
-    <package  name="com.baoliang.Useraction.Getdata" extends="json-default" >
+    <package  name="com.baoliang.Useraction" extends="json-default" >
     <action name="getuserdata" class="com.baoliang.Useraction.Getdata" method="getdata">
     <result name="success" type="json"></result>
     </action>

@@ -9,7 +9,7 @@
 <link href="../Lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script src="../Lib/jquery.min.js"></script>
 <script src="../Lib/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/Main-innerPage.js"></script>
+<script type="text/javascript" src="js/Main-innerPage.js" charset="utf-8"></script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -74,6 +74,6 @@
 	<span class="label label-default" id="pageshow"></span>
 </div>
 	
-	<script type="text/javascript" src="js/chart.js"></script>
+	<script type="text/javascript" src="js/chart.js" charset="utf-8"></script>
 </body>
 </html>
