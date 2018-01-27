@@ -136,5 +136,11 @@
 		</action>
 		
 	</package>
+	<package name="com.baoliang.Mobile" extends="struts-default">
+	<action name="m_login" class="com.baoliang.Mobile.mobil_Login" method="Login">
+	<result name="success">/mobileres.jsp</result>
+	<result name="error">/error.jsp</result>
+	</action>
+	</package>
 
 	</struts>

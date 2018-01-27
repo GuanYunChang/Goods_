@@ -54,7 +54,7 @@ public class DriversDaoImp extends JdbcDaoSupport implements DriversDao{
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public boolean confirm(String drivernums, String pass) {
-		return this.getJdbcTemplate().query("select name from Manager where drivernums=? and pass = ?  ", new Object[] {drivernums,pass},new ResultSetExtractor() {
+		return this.getJdbcTemplate().query("select name from drivers where drivernums=? and pass = ?  ", new Object[] {drivernums,pass},new ResultSetExtractor() {
 
 			public Object extractData(ResultSet rs) throws SQLException, DataAccessException {
 				

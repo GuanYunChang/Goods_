@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>    
+<!DOCTYPE struts PUBLIC    
+            "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"    
+    "http://struts.apache.org/dtds/struts-2.5.dtd">  
+    
+    <struts>
+    <package  name="com.baoliang.Useraction" extends="json-default" >
+    <action name="getuserdata" class="com.baoliang.Useraction.Getdata" method="getdata">
+    <result name="success" type="json"></result>
+    </action>
+    <action name="deleteforuser" class="com.baoliang.Useraction.Getdata" method="deleteforuser">
+    <result name="success" type="json"></result>
+    </action>
+    
+    </package>
+  
+	<package  name="com.baoliang.Login.Login" extends="json-default" >
+		<action name="Login" class="com.baoliang.Login.Login">
+			 <result name="success" type="json"></result>
+		</action>
+<!-- 发送短信 -->
+		<action name="Sendmessage" class="com.baoliang.Login.Login" method="sendmessage">
+			 <result name="success" type="json"></result>
+		</action>
+<!-- 注册发单人 -->
+		<action name="Register" class="com.baoliang.Login.Register" method="Register">
+			<result name="success" type="json"></result>
+		</action>
+<!-- 退出 -->
+		<action name="Logout" class="com.baoliang.Login.Login" method="Logout">
+		<result name="success" type="json"></result>
+		</action>
+	</package>
+<!-- 获取主页面数据 -->
+<package  name="com.baoliang.MainAction.Getchartdata" extends="json-default" >
+	<action name="getapsdata" class="com.baoliang.MainAction.Getchartdata"  method="getApplicationData">
+	<result name="success" type="json"></result>
+	</action>
+	<action name="getcountofmaintable" class="com.baoliang.MainAction.Getchartdata"  method="getcountofmaintable">
+	<result name="success" type="json"></result>
+	</action>
+	<!-- 获取管理员列表 -->
+	<action name="getmanagerlist" class="com.baoliang.MainAction.Rootmanagement" method="getmanagerlist">
+		<result name="success" type="json"></result>
+	</action>
+	<action name="deletemanager" class="com.baoliang.MainAction.Rootmanagement" method="deletemanager">
+		<result name="success" type="json"></result>
+	</action>
+	<action name="editemanager" class="com.baoliang.MainAction.Rootmanagement" method="editemanager">
+		<result name="success" type="json"></result>
+	</action>
+	<!-- 修改管理员信息 -->
+	<action name="editinfo" class="com.baoliang.MainAction.Rootmanagement" method="editformanager">
+		<result name="success" type="json"></result>
+	</action>
+	
+	<action name="deletedforpalication" class="com.baoliang.MainAction.applicationmanager" method="deletedforpalication">
+		<result name="success" type="json"></result>
+	</action>
+	
+	<!-- 保存订单 -->
+	<action name="saveappliaction" class="com.baoliang.MainAction.applicationmanager" method="saveappliaction">
+		<result name="success" type="json"></result>
+	</action>
+	
+	<action name="saveappliaction" class="com.baoliang.MainAction.applicationmanager" method="saveappliaction">
+		<result name="success" type="json"></result>
+	</action>
+	<action name="commitapplication" class="com.baoliang.MainAction.applicationmanager" method="commitapplication">
+		<result name="success" type="json"></result>
+	</action>
+	
+	<action name="searchbyacnum" class="com.baoliang.MainAction.applicationmanager" method="searchbyacnum">
+		<result name="success" type="json"></result>
+	</action>
+	<action name="saveappliactionyes" class="com.baoliang.MainAction.applicationmanager" method="saveappliactionyes">
+		<result name="success" type="json"></result>
+	</action>
+	<action name="refreshtableup" class="com.baoliang.MainAction.Refresheforbindtable" method="refreshtableup">
+	<result name="success" type="json"></result>
+	</action>
+	<action name="refreshtabledown" class="com.baoliang.MainAction.Refresheforbindtable" method="refreshtabledown">
+		<result name="success" type="json"></result>
+	</action>
+	
+	<action name="selectdriver" class="com.baoliang.MainAction.Refresheforbindtable" method="selectdriver">
+		<result name="success" type="json"></result>
+	</action>
+	
+</package>
+<package name="com.baoliang.siderbaraction.Managerinfoaction" extends="json-default">
+	<action name="RegisterManager" class="com.baoliang.siderbaraction.Managerinfoaction" method="addManager">
+		<result name="success" type="json"></result>
+	</action>
+
+
+
+
+</package>
+<!-- 过渡页面 -->
+	<package name="com.baoliang.Login.forward" extends="struts-default">
+		<action name="Logforward" class="com.baoliang.Login.Logforward">
+			<result name="success">/Main/Main-super.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="Logforward1" class="com.baoliang.Login.Logforward" method="forward1">
+			<result name="success">/User/Main.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="rootforward" class="com.baoliang.Login.Logforward" method="rootlogin">
+			<result name="success">/Main/root.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
+	</package>
+	<package name="com.baoliang.MainAction.Rootmanagement" extends="struts-default">
+		<action name="editemanagerforward" class="com.baoliang.MainAction.Rootmanagement" method="editemanagerforward">
+			<result name="success">/Main/Editmanager.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
+		<action name="editfortableno" class="com.baoliang.MainAction.applicationmanager" method="editforapplication1">
+			<result name="success">/Main/Editforinfotableno.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
+		<action name="editforableyes" class="com.baoliang.MainAction.applicationmanager" method="editforapplication2">
+			<result name="success">/Main/Editforinfotableyes.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
+		
+		<action name="Changebind" class="com.baoliang.MainAction.Refresheforbindtable" method="selectcar">
+		<result name="success">/Main/Changebindcar.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
+	</package>
+
+	</struts>

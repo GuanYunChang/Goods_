@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2018-1-10 7:48:01 by Hibernate Tools 5.2.6.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="goods" dynamic-insert="false" dynamic-update="false" mutable="true" name="Application" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="application">
+        <id name="acnum" type="string">
+            <column name="acnum"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="Boss" embed-xml="true" fetch="select" insert="true" name="bossByBoss" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="boss"/>
+        </many-to-one>
+        <many-to-one class="Boss" embed-xml="true" fetch="select" insert="true" name="bossByPhone" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="phone"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="goods" optimistic-lock="true" type="string" unique="false">
+            <column name="goods"/>
+        </property>
+        <property generated="never" lazy="false" name="start" optimistic-lock="true" type="string" unique="false">
+            <column name="start"/>
+        </property>
+        <property generated="never" lazy="false" name="destination" optimistic-lock="true" type="string" unique="false">
+            <column name="destination"/>
+        </property>
+         <many-to-one class="Drivers" embed-xml="true" fetch="select" insert="true" name="driversBydrivernum" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="drivernum"/>
+            
+       </many-to-one>
+        <many-to-one class="Drivers" embed-xml="true" fetch="select" insert="true" name="driverBystatue" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="statue"/>
+        </many-to-one>
+        <many-to-one class="Drivers" embed-xml="true" fetch="select" insert="true" name="driverBycar" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="car"/>
+        </many-to-one>
+        <many-to-one class="Drivers" embed-xml="true" fetch="select" insert="true" name="bossByweight" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="weight"/>
+        </many-to-one>
+        
+    </class>
+</hibernate-mapping>

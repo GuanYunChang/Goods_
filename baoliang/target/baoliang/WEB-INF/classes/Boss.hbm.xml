@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2018-1-10 7:48:01 by Hibernate Tools 5.2.6.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="goods" dynamic-insert="false" dynamic-update="false" mutable="true" name="Boss" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="boss">
+        <id name="bossphone" type="string">
+            <column name="bossphone"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="bosspass" optimistic-lock="true" type="string" unique="false">
+            <column name="bosspass"/>
+        </property>
+        <property generated="never" lazy="false" name="bossname" optimistic-lock="true" type="string" unique="false">
+            <column name="bossname"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="applicationsForBoss" optimistic-lock="true" sort="unsorted" table="application">
+            <key on-delete="noaction">
+                <column name="boss"/>
+            </key>
+            <one-to-many class="Application" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="applicationsForPhone" optimistic-lock="true" sort="unsorted" table="application">
+            <key on-delete="noaction">
+                <column name="phone"/>
+            </key>
+            <one-to-many class="Application" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

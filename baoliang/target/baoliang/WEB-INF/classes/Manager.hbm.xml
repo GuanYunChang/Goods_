@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2018-1-10 7:48:01 by Hibernate Tools 5.2.6.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="goods" dynamic-insert="false" dynamic-update="false" mutable="true" name="Manager" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="Manager">
+        <id name="phone" type="string">
+            <column name="phone"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="pass" optimistic-lock="true" type="string" unique="false">
+            <column name="pass"/>
+        </property>
+        <property generated="never" lazy="false" name="name" optimistic-lock="true" type="string" unique="false">
+            <column name="name"/>
+        </property>
+    </class>
+</hibernate-mapping>

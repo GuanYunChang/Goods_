@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2018-1-10 7:48:01 by Hibernate Tools 5.2.6.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="goods" dynamic-insert="false" dynamic-update="false" mutable="true" name="Drivers" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="drivers">
+        <id name="drivernums" type="string">
+            <column name="drivernums"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="name" optimistic-lock="true" type="string" unique="false">
+            <column name="name"/>
+        </property>
+        <property generated="never" lazy="false" name="phone" optimistic-lock="true" type="string" unique="false">
+            <column name="phone"/>
+        </property>
+        <property generated="never" lazy="false" name="pass" optimistic-lock="true" type="string" unique="false">
+            <column name="pass"/>
+        </property>
+        <property generated="never" lazy="false" name="carnum" optimistic-lock="true" type="string" unique="false">
+            <column name="carnum"/>
+        </property>
+        <property generated="never" lazy="false" name="cargo" optimistic-lock="true" type="java.lang.Double" unique="false">
+            <column name="cargo" precision="255" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="statue" optimistic-lock="true" type="string" unique="false">
+            <column name="statue"/>
+        </property>
+        <property generated="never" lazy="false" name="sumlength" optimistic-lock="true" type="string" unique="false">
+            <column name="sumlength"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="applicationfor" optimistic-lock="true" sort="unsorted" table="application">
+            <key on-delete="noaction">
+                <column name="drivernum"/>
+            </key>
+            <one-to-many class="Application" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>
