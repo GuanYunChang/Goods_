@@ -46,7 +46,7 @@ function refreshdown()
 			 +'<td>'+mydata[i].phone+'</td>'
 			 +'<td>'+mydata[i].carnum+'</td>'
 			 +'<td>'+mydata[i].cargo+'</td>'
-			 +'<td><input id="selectcar"  name="selectcar" type="radio" value="'+mydata[i].drivernums+'" onclick="valuedata(\''+mydata[i].carnum+'\',\''+mydata[i].drivernums+'\')"/></td>'
+			 +'<td><input id="selectcar"  name="selectcar" type="radio" value="'+mydata[i].drivernums+'" onclick="valuedata(\''+mydata[i].carnum+'\',\''+mydata[i].drivernums+'\',\''+document.getElementById('acnum').innerHTML+'\')"/></td>'
 			 +'</tr>';
 			 }
 			document.getElementById('apcar').innerHTML=str;
@@ -64,11 +64,13 @@ function refreshdown()
 }
 var carnum;
 var drivernum;
-
-function valuedata(car,driver)
+var acnumK;
+function valuedata(car,driver,acnums)
 {
 	carnum=car;
 	drivernum=driver;
+	acnumK=acnums;
+	alert()
 }
 
 function seclectdriver()
@@ -76,7 +78,7 @@ function seclectdriver()
 	
 	var acnum=$('#acnum').val();
 	alert("data:"+acnum+","+carnum+","+drivernum);
-	window.location.href="http://"+window.location.hostname+":"+window.location.port+"/baoliang/selectdriver?drivernum="+drivernum+"&carnum="+carnum+"&acnum="+acnum;
+	window.location.href="http://"+window.location.hostname+":"+window.location.port+"/baoliang/selectdriver?drivernum="+drivernum+"&carnum="+carnum+"&acnum="+acnumK;
 }
 
 function next()

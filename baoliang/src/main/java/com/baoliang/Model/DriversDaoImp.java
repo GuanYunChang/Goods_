@@ -15,6 +15,18 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 public class DriversDaoImp extends JdbcDaoSupport implements DriversDao{
 
+	public boolean setpass(String pass,String drivernums)
+	{
+		try {
+		this.getJdbcTemplate().update("update drivers set pass=? where drivernums=?",new String[] {pass,drivernums});
+		}catch(Exception e) {
+			return false;
+			
+		}
+		return true;
+	}
+	
+	
 	public void save(String drivernums, String name, String phone, String pass, String carnum, double cargo,
 			String statue, String sumlength) {
 		this.getJdbcTemplate().update("insert into drivers(drivernums,name,phone,pass,carnum,cargo,statue,sumlength) values(?,?,?,?,?,?,?,?)",new Object[]{drivernums,name,phone,pass,carnum,cargo,statue,sumlength});
@@ -38,9 +50,11 @@ public class DriversDaoImp extends JdbcDaoSupport implements DriversDao{
 		
 	}
 
-	public Drivers findByphone(String drivernums) {
+	public List<Drivers> findByphone(String drivernums) {
 		// TODO Auto-generated method stub
-		return this.getJdbcTemplate().queryForObject("select * from drivers where drivernums=?",new Object[] {drivernums}, Drivers.class);
+		//String sql = "select * from drivers where drivernums='"+drivernums+"'";
+		
+		return this.getJdbcTemplate().query("select * from drivers where drivernums=?",new Object[] {drivernums},new BeanPropertyRowMapper(Drivers.class));
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })

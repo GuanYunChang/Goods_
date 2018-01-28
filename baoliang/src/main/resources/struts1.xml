@@ -135,12 +135,20 @@
 			<result name="error">/error.jsp</result>
 		</action>
 		
+	<!-- 下面是手机获取信息 -->
 	</package>
 	<package name="com.baoliang.Mobile" extends="struts-default">
 	<action name="m_login" class="com.baoliang.Mobile.mobil_Login" method="Login">
-	<result name="success">/mobileres.jsp</result>
-	<result name="error">/error.jsp</result>
 	</action>
+	<action name="getUserData" class="com.baoliang.Mobile.mobile_GetuserData" method="getUserData">
+	</action>
+	<action name="m_getUserDoing" class="com.baoliang.Mobile.mobile_GetuserData" method="m_getUserDoing">
+	</action>
+	<action name="m_setApplicationFinished" class="com.baoliang.Mobile.mobile_GetuserData" method="m_setApplicationFinished">
+	</action>
+	<action name="m_setUserPassword" class="com.baoliang.Mobile.mobile_GetuserData" method="m_setUserPassword">
+	</action>
+	
 	</package>
 
 	</struts>

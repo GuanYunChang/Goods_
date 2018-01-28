@@ -190,10 +190,11 @@ public class Refresheforbindtable  extends ActionSupport {
 		ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
 		DriversDaoImp apc= (DriversDaoImp) context.getBean("DriversDaoImp");
 		List objlist=apc.findAll("1");
+		System.out.println(jsontools.tojsonForNoArray(objlist,Drivers.class )+"!!!");
 		Integer sum=objlist.size();
-		Integer start=(getPagesum()-1)*getIndexup()+1;
-		if(start<1)
-			start=1;
+		Integer start=(getPagesum()-1)*getIndexup();
+		if(start<0)
+			start=0;
 		
 		Integer end=start+getPagesum();
 		if(end>sum)

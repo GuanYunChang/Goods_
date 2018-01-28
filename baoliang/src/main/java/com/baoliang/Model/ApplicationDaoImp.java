@@ -25,7 +25,9 @@ public class ApplicationDaoImp extends JdbcDaoSupport implements ApplicationDao 
 	}
 	public void setdriverforapplication(String carnum,String drivernum,String acnum)
 	{
-		this.getJdbcTemplate().update("update application set statue='2',car=?,drivernum=? where acnum=?",new Object[] {carnum,drivernum,acnum});
+		
+		System.out.println("绑定"+carnum+","+drivernum+","+acnum);
+		this.getJdbcTemplate().update("update application set statue=?,car=?,drivernum=? where acnum=?",new Object[] {"3",carnum,drivernum,acnum});
 		
 	}
 	public void unlockapplication(String acnum) {
@@ -64,8 +66,30 @@ public class ApplicationDaoImp extends JdbcDaoSupport implements ApplicationDao 
 		return this.getJdbcTemplate().query("select * from application where statue=?", new Object[]{statue},new BeanPropertyRowMapper(Application.class));
 		
 	}
-	
-	
+	/**
+	 * 手机端获取司机正在做的任务
+	 * @param drivernum
+	 * @return
+	 */
+	public List<Application> Mobile_findUserDoing(String drivernum)
+	{
+		return this.getJdbcTemplate().query("select * from application where statue='3' and drivernum=?", new Object[]{drivernum},new BeanPropertyRowMapper(Application.class));
+	}
+	/**
+	 * 设置用户正在完成的状态
+	 * @param acnum
+	 * @return
+	 */
+	public boolean Mobile_setStatue(String acnum)
+	{
+		try {
+			this.getJdbcTemplate().update("update application set statue =? where acnum=?",new String[] {"2",acnum});
+		}catch(Exception e)
+		{
+			return false;
+		}
+		return true;
+	}
 public List<Application> findAllunlock(String statue) {
 		
 		return this.getJdbcTemplate().query("select * from application where statue=? and lockversion=1", new Object[]{statue},new BeanPropertyRowMapper(Application.class));

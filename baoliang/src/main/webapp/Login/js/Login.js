@@ -36,7 +36,7 @@ $('#submitbtn').click(function() {
                         		case 2:window.location.href="http://"+window.location.hostname+":"+window.location.port+"/baoliang/Logforward1?username="+userName;
                         			break;
                         		case 3: window.location.href="http://"+window.location.hostname+":"+window.location.port+"/baoliang/rootforward?username="+userName;
-                        			alert("s");
+                        		
                         		break;
                         		}
                         		

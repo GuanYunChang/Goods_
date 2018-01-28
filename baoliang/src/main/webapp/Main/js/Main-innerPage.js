@@ -184,7 +184,7 @@ function addtabledata(dataarray,tableindex,page)
  			+'<td>订单人电话</td>'
  			+'<td>货物</td>'
  			+'<td>重量</td>'
- 			+'<td>始发地</td><td>目的地</td></tr>';
+ 			+'<td>始发地</td><td>目的地</td><td>司机编号</td><td>车牌</td></tr>';
 		 for(i=start;i<end;i++)
 		{
 		
