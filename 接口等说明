@@ -4,16 +4,21 @@ drivers运送中3
 application 运送中3
 application 待配送1
 application 已完成2
-
+http://119.29.14.111:8080/baoliang
 接口=======================================================================================================
 http://localhost:8080/baoliang/m_login?drivernums=d1&pass=2	用户登录验证 statue:true ,flase;
 
 http://localhost:8080/baoliang/getUserData?drivernums=110	返回用户信息返回的是一个json数组;
+[{"phone":"110","pass":"1","name":"zbl","statue":"3","cargo":"1.0","drivernums":"110","sumlength":"1","carnum":"cartest"}]
 
 http://localhost:8080/baoliang/m_getUserDoing?drivernums=d3	返回的是移动用户正在完成的订单；
 
 http://localhost:8080/baoliang/m_setApplicationFinished?drivernums=test 设置订单完成；
 
 http://localhost:8080/baoliang/m_setUserPassword?drivernums=110&pass=1 设置密码: statue:true,false;
+
+http://localhost:8080/baoliang/m_getFinishedAp?drivernums=d2       返回移动用户已经完成订单返回json数组
+[{"acnum":"dasfdvfds","boss":"22","phone":"15589522083","car":"路灯45","start":"d","destination":"fd","goods":"dsf","statue":"2","weight":"1251.0","drivernum":"d2"}]
+
 
 

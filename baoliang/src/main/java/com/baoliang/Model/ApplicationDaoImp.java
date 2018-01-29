@@ -90,6 +90,15 @@ public class ApplicationDaoImp extends JdbcDaoSupport implements ApplicationDao 
 		}
 		return true;
 	}
+	/**
+	 * 手机端用户获取自己的已经完成订单
+	 * @return
+	 */
+	public List<Application> FindFinishedApBydrivernum(String drivernum)
+	{
+		return this.getJdbcTemplate().query("select * from application where statue=? and drivernum=?", new Object[]{"2",drivernum},new BeanPropertyRowMapper(Application.class));
+		
+	}
 public List<Application> findAllunlock(String statue) {
 		
 		return this.getJdbcTemplate().query("select * from application where statue=? and lockversion=1", new Object[]{statue},new BeanPropertyRowMapper(Application.class));

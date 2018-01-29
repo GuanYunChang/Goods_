@@ -81,8 +81,21 @@ public class mobile_GetuserData extends ActionSupport{
 		{
 		netTools.json(response, "{\"statue\":\"false\"}", "utf-8");
 		}
-			
 		
+	}
+	/**
+	 * 获取自己已经完成的订单
+	 * @throws IllegalAccessException 
+	 * @throws IllegalArgumentException 
+	 * @throws JSONException 
+	 */
+	public void getFinishedAp() throws JSONException, IllegalArgumentException, IllegalAccessException
+	{
+		ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
+		ApplicationDaoImp ap=(ApplicationDaoImp)context.getBean("ApplicationDaoImp");
+		HttpServletResponse response = ServletActionContext.getResponse();
+		String data=jsontools.tojsonForNoArray(ap.FindFinishedApBydrivernum(getDrivernums()),Application.class);
+		netTools.json(response, data, "utf-8");
 		
 	}
 }
