@@ -18,6 +18,13 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class mobile_GetuserData extends ActionSupport{
 
+	private String acnum;
+	public String getAcnum() {
+		return acnum;
+	}
+	public void setAcnum(String acnum) {
+		this.acnum = acnum;
+	}
 	private String pass;
 	public String getPass() {
 		return pass;
@@ -58,7 +65,7 @@ public class mobile_GetuserData extends ActionSupport{
 		ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
 		ApplicationDaoImp ap=(ApplicationDaoImp)context.getBean("ApplicationDaoImp");
 		HttpServletResponse response = ServletActionContext.getResponse();
-		boolean flag=ap.Mobile_setStatue(getDrivernums());
+		boolean flag=ap.Mobile_setStatue(getAcnum());
 		if(flag)
 		netTools.json(response, "{\"statue\":\"ture\"}", "utf-8");
 		else

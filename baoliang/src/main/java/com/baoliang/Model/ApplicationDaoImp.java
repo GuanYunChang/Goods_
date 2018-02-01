@@ -84,6 +84,7 @@ public class ApplicationDaoImp extends JdbcDaoSupport implements ApplicationDao 
 	{
 		try {
 			this.getJdbcTemplate().update("update application set statue =? where acnum=?",new String[] {"2",acnum});
+			System.out.println("设置订单完成"+acnum);
 		}catch(Exception e)
 		{
 			return false;
