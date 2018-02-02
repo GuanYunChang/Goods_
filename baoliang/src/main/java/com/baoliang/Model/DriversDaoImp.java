@@ -44,9 +44,15 @@ public class DriversDaoImp extends JdbcDaoSupport implements DriversDao{
 		this.getJdbcTemplate().update("update drivers set pass=? where drivernums=?",new Object[] {pass,drivernums});
 		
 	}
+	
+	public void updateuserinfoForManager(String drivernums, String name, String phone,  String carnum, double cargo)
+	{
+		this.getJdbcTemplate().update("update drivers set name=?,phone=?,carnum=?,cargo=? where drivernums=?",new Object[] {name,phone,carnum,cargo,drivernums});
+		
+	}
 
 	public void delete(String drivernums) {
-		this.getJdbcTemplate().update("delete from dirvers where drivernums =?",new Object[] {drivernums});
+		this.getJdbcTemplate().update("delete from drivers where drivernums =?",new Object[] {drivernums});
 		
 	}
 
@@ -56,7 +62,14 @@ public class DriversDaoImp extends JdbcDaoSupport implements DriversDao{
 		
 		return this.getJdbcTemplate().query("select * from drivers where drivernums=?",new Object[] {drivernums},new BeanPropertyRowMapper(Drivers.class));
 	}
-
+/**
+ * 查询所有的司机
+ * @return
+ */
+	public List<Drivers>finallDriver(){
+		
+		return this.getJdbcTemplate().query("select * from drivers",new BeanPropertyRowMapper(Drivers.class));
+	}
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<Drivers> findAll(String statue) {
 		

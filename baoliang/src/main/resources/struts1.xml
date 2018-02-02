@@ -4,6 +4,34 @@
     "http://struts.apache.org/dtds/struts-2.5.dtd">  
     
     <struts>
+    <package name="com.baoliang.DriverMan" extends="json-default">
+    <action name="getdriversdata" class="com.baoliang.DriverMan.DriverMan" method="getdriversdata">
+    <result name="success" type="json"></result>
+    </action>
+    <!-- 修改用户个人信息 -->
+    <action name="updateuserinfo" class="com.baoliang.DriverMan.DriverMan" method="updateuserinfo">
+    <result name="success" type="json"></result>
+    </action>
+    
+    
+    <action name="deldriver" class="com.baoliang.DriverMan.DriverMan" method="deldriver">
+    <result name="success" type="json"></result>
+    </action>
+    
+    </package>
+    
+    
+    <!-- 司机信息页面过渡 -->
+	<package name="com.baoliang.DriverMan.DriverMan" extends="struts-default">
+		<action name="editedriver" class="com.baoliang.DriverMan.DriverMan" method="editedriver">
+			<result name="success">/DriverManager/EditDriver.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+	</package>
+    
+    
+    
+    
     <package  name="com.baoliang.Useraction" extends="json-default" >
     <action name="getuserdata" class="com.baoliang.Useraction.Getdata" method="getdata">
     <result name="success" type="json"></result>
@@ -135,8 +163,10 @@
 			<result name="error">/error.jsp</result>
 		</action>
 		
-	<!-- 下面是手机获取信息 -->
+	
 	</package>
+
+	<!-- 下面是手机获取信息 -->
 	<package name="com.baoliang.Mobile" extends="struts-default">
 	<action name="m_login" class="com.baoliang.Mobile.mobil_Login" method="Login">
 	</action>

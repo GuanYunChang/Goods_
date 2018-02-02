@@ -11,5 +11,8 @@ function rootselectFunc(index)
 		case 3:
 			document.getElementById("frameK").src="Main/Bindapanddriver.jsp";
 			break;
+		case 4:
+			document.getElementById("frameK").src="DriverManager/DriverMa.jsp";
+			break;
 	}
 }
