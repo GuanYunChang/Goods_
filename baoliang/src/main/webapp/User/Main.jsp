@@ -51,12 +51,14 @@
 	</div>
 	<div class="form-group">
 	<label class="la">起始点</label>
-	<input type="text" id="start" name="start" class="form-control" onclick="openstart()"/>
+	<input type="text" id="start" name="start" class="form-control" onclick="openstart()" readonly="readonly"/>
+	 经度:<span id="longitudestart"></span>纬度:<span id="latitudestart"></span>
 	<input type="button" onclick="openwin(1)" value="打开地图"/>
 	</div>
 	<div class="form-group">
 	<label class="la">目的地</label>
-	<input type="text" id="destination" name="destination" class="form-control" onclick="opendestination()"/>
+	<input type="text" id="destination" name="destination" class="form-control" onclick="opendestination()" readonly="readonly"/>
+	经度:<span id="longitudedestination"></span>纬度:<span id="latitudedestination"></span>
 	<input type="button" onclick="openwin(2)" value="打开地图"/>
 	</div>
 	<div class="form-group">

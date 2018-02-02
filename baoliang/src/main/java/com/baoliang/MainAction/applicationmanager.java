@@ -14,6 +14,36 @@ import com.baoliang.Tools.jsontools;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class applicationmanager extends ActionSupport {
+	private String longitudestart;
+	private String latitudestart ;
+	private String longitudedestination;
+	private String latitudedestination;
+	
+	public String getLatitudedestination() {
+		return latitudedestination;
+	}
+	public void setLatitudedestination(String latitudedestination) {
+		this.latitudedestination = latitudedestination;
+	}
+	public String getLongitudestart() {
+		return longitudestart;
+	}
+	public void setLongitudestart(String longitudestart) {
+		this.longitudestart = longitudestart;
+	}
+	public String getLatitudestart() {
+		return latitudestart;
+	}
+	public void setLatitudestart(String latitudestart) {
+		this.latitudestart = latitudestart;
+	}
+	public String getLongitudedestination() {
+		return longitudedestination;
+	}
+	public void setLongitudedestination(String longitudedestination) {
+		this.longitudedestination = longitudedestination;
+	}
+	
 
 	private String acnum;
 	private String boss;
@@ -99,13 +129,13 @@ public class applicationmanager extends ActionSupport {
 	 */
 	public String editforapplication1()
 	{
-		System.out.println("编辑订单for tableno");
+		System.out.println(getLongitudedestination()+"编辑订单for tableno "+getLatitudedestination());
 		return SUCCESS;
 	}
 	public String editforapplication2()
 	{
 		
-		System.out.println("编辑订单for tableyes");
+		System.out.println("编辑订单for tableyes"+getLatitudedestination());
 		return SUCCESS;
 	}
 	
@@ -125,7 +155,7 @@ public class applicationmanager extends ActionSupport {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
 		ApplicationDaoImp ap= (ApplicationDaoImp) context.getBean("ApplicationDaoImp");
-		ap.update(getAcnum(), getBoss(), getPhone(), getGoods(), getStart(), getDestination(), getWeight());
+		ap.update(getAcnum(), getBoss(), getPhone(), getGoods(), getStart(), getDestination(), getWeight(),getLongitudestart(),getLatitudestart(),getLongitudedestination(),getLatitudedestination());
 		return SUCCESS;
 	}
 	
@@ -134,7 +164,7 @@ public class applicationmanager extends ActionSupport {
 	{
 		ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
 		ApplicationDaoImp ap= (ApplicationDaoImp) context.getBean("ApplicationDaoImp");
-		ap.save(boss, phone, goods, start, destination, "1", weight);
+		ap.save(boss, phone, goods, start, destination, "1", weight,getLongitudestart(),getLatitudestart(),getLongitudedestination(),getLatitudedestination());
 		return SUCCESS;
 	}
 	
@@ -151,7 +181,7 @@ public class applicationmanager extends ActionSupport {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
 		ApplicationDaoImp ap= (ApplicationDaoImp) context.getBean("ApplicationDaoImp");
-		ap.updatetableyes(acnum, boss, phone, goods, start, destination, weight, car, drivernum);
+		ap.updatetableyes(acnum, boss, phone, goods, start, destination, weight, car, drivernum,getLongitudestart(),getLatitudestart(),getLongitudedestination(),getLatitudedestination());
 		
 		return SUCCESS;
 	}

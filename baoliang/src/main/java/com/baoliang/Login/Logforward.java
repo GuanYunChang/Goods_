@@ -12,6 +12,34 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class Logforward extends ActionSupport {
 
+	private String longitudestart;
+	private String latitudestart;
+	private String longitudedestination;
+	public String getLongitudestart() {
+		return longitudestart;
+	}
+	public void setLongitudestart(String longitudestart) {
+		this.longitudestart = longitudestart;
+	}
+	public String getLatitudestart() {
+		return latitudestart;
+	}
+	public void setLatitudestart(String latitudestart) {
+		this.latitudestart = latitudestart;
+	}
+	public String getLongitudedestination() {
+		return longitudedestination;
+	}
+	public void setLongitudedestination(String longitudedestination) {
+		this.longitudedestination = longitudedestination;
+	}
+	public String getLatitudedestination() {
+		return latitudedestination;
+	}
+	public void setLatitudedestination(String latitudedestination) {
+		this.latitudedestination = latitudedestination;
+	}
+	private String latitudedestination;
 	private String username;
 	
 	
@@ -28,6 +56,7 @@ public class Logforward extends ActionSupport {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	@Override
 	public String execute() throws Exception {
 		if(!Sessionverify.verify())

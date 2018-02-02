@@ -34,6 +34,17 @@
         <many-to-one class="Drivers" embed-xml="true" fetch="select" insert="true" name="bossByweight" not-found="exception" optimistic-lock="true" unique="false" update="true">
             <column name="weight"/>
         </many-to-one>
-        
+         <property generated="never" lazy="false" name="lat" optimistic-lock="true" type="string" unique="false">
+            <column name="lat"/>
+        </property>
+        <property generated="never" lazy="false" name="longt" optimistic-lock="true" type="string" unique="false">
+            <column name="longt"/>
+        </property>
+        <property generated="never" lazy="false" name="latdes" optimistic-lock="true" type="string" unique="false">
+            <column name="latdes"/>
+        </property>
+        <property generated="never" lazy="false" name="longdes" optimistic-lock="true" type="string" unique="false">
+            <column name="longdes"/>
+        </property>
     </class>
 </hibernate-mapping>

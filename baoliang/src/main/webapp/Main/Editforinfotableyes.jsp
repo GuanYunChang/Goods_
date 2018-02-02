@@ -38,13 +38,17 @@
   		<div class="form-group">
     		<label >始发地</label>
    			 <input name="start" value='<s:property value="start"/>' type="text" class="form-control" id="" placeholder="始发地">
+  			 经度:<span id="longitudestart"><s:property value="longitudestart"/></span>纬度:<span id="latitudestart"><s:property value="latitudestart"/></span>
   			<input type="button" onclick="openwin(1)" value="打开地图"/>
+  			
   		</div>
   		
   		<div class="form-group">
     		<label >目的地</label>
    			 <input name="destination" value='<s:property value="destination"/>' type="text" class="form-control" id="" placeholder="目的地">
+  			经度:<span id="longitudedestination"><s:property value="longitudedestination"/></span>纬度:<span id="latitudedestination"><s:property value="latitudedestination"/></span>
   			<input type="button" onclick="openwin(2)" value="打开地图"/>
+  			
   		</div>
   		<div class="form-group">
     		<label >重量</label>

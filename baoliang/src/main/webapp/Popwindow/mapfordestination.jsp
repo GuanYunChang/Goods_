@@ -55,6 +55,9 @@ AMap.plugin(['AMap.ToolBar', 'AMap.Scale', 'AMap.MapType','AMap.Geocoder','AMap.
     var clickEventListener = map.on('click', function(e) {
         document.getElementById("lnglat").value = e.lnglat.getLng() + ',' + e.lnglat.getLat()
     	xylocation=[e.lnglat.getLng(),e.lnglat.getLat()];
+        
+        window.opener.document.getElementById("longitudedestination").innerHTML=e.lnglat.getLng();
+        window.opener.document.getElementById("latitudedestination").innerHTML=e.lnglat.getLat();
         //alert(xylocation);
         regeocoder();
     });

@@ -19,6 +19,41 @@ public class Application implements java.io.Serializable {
 	private String start;
 	private String destination;
 	private String drivernum;
+	private String lat;
+	private String longt;
+	private String latdes;
+	private String longdes;
+	public String getLat() {
+		return lat;
+	}
+
+	public void setLat(String lat) {
+		this.lat = lat;
+	}
+
+	public String getLongt() {
+		return longt;
+	}
+
+	public void setLongt(String longt) {
+		this.longt = longt;
+	}
+
+	public String getLatdes() {
+		return latdes;
+	}
+
+	public void setLatdes(String latdes) {
+		this.latdes = latdes;
+	}
+
+	public String getLongdes() {
+		return longdes;
+	}
+
+	public void setLongdes(String longdes) {
+		this.longdes = longdes;
+	}
 
 	public String getDrivernum() {
 		return drivernum;

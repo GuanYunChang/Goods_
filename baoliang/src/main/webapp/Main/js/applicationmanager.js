@@ -134,7 +134,7 @@ function addtabledata(dataarray,tableindex,page)
 				+'<input type="button" onclick="deleted(\''+dataarray[i].acnum+'\')" value="删除"/>'
 				+'<input type="button" onclick="edit(\''+dataarray[i].acnum+'\',\''+dataarray[i].boss
 				+'\',\''+dataarray[i].phone+'\',\''+dataarray[i].goods+'\',\''+dataarray[i].start+'\',\''+dataarray[i].destination
-				+'\',\''+dataarray[i].weight+'\')" value="编辑"/>'
+				+'\',\''+dataarray[i].weight+'\',\''+dataarray[i].longt+'\',\''+dataarray[i].lat+'\',\''+dataarray[i].longdes+'\',\''+dataarray[i].latdes+'\')" value="编辑"/>'
 				+'</td></tr>';
 				
 				
@@ -172,7 +172,7 @@ for(i=start;i<end;i++)
 		+'<input type="button" onclick="deleted(\''+dataarray[i].acnum+'\')" value="删除"/>'
 		+'<input type="button" onclick="editfortableyes(\''+dataarray[i].acnum+'\',\''+dataarray[i].boss
 		+'\',\''+dataarray[i].phone+'\',\''+dataarray[i].goods+'\',\''+dataarray[i].start+'\',\''+dataarray[i].destination
-		+'\',\''+dataarray[i].weight+'\',\''+dataarray[i].car+'\',\''+dataarray[i].drivernum+'\')" value="编辑"/>'
+		+'\',\''+dataarray[i].weight+'\',\''+dataarray[i].car+'\',\''+dataarray[i].drivernum+'\',\''+dataarray[i].longt+'\',\''+dataarray[i].lat+'\',\''+dataarray[i].longdes+'\',\''+dataarray[i].latdes+'\')" value="编辑"/>'
 		+'</td></tr>';
 		
 		
@@ -204,17 +204,17 @@ function deleted(acnum)
 	});
 }
 
-function edit(acnum,boss,phone,goods,start,destination,weight)
+function edit(acnum,boss,phone,goods,start,destination,weight,longitudestart,latitudestart,longitudedestination,latitudedestination)
 {
-	
-	window.location.href="http://"+window.location.hostname+":"+window.location.port+"/baoliang/editfortableno?"+"acnum="+acnum+"&boss="+boss+"&phone="+phone+"&goods="+goods+"&start="+start+"&destination="+destination+"&weight="+weight;
-	alert("http://"+window.location.hostname+":"+window.location.port+"/baoliang/editfortableno?"+"acnum="+acnum+"&boss="+boss+"&phone="+phone+"&goods="+goods+"&start="+start+"&destination="+destination+"&weight="+weight);
+	alert("http://"+window.location.hostname+":"+window.location.port+"/baoliang/editfortableno?"+"acnum="+acnum+"&boss="+boss+"&phone="+phone+"&goods="+goods+"&start="+start+"&destination="+destination+"&weight="+weight+"&longitudestart="+longitudestart+"&latitudestart="+latitudestart+"&longitudedestination="+longitudedestination+"&latitudedestination="+latitudedestination);
+	window.location.href="http://"+window.location.hostname+":"+window.location.port+"/baoliang/editfortableno?"+"acnum="+acnum+"&boss="+boss+"&phone="+phone+"&goods="+goods+"&start="+start+"&destination="+destination+"&weight="+weight+"&longitudestart="+longitudestart+"&latitudestart="+latitudestart+"&longitudedestination="+longitudedestination+"&latitudedestination="+latitudedestination;
+	//alert("http://"+window.location.hostname+":"+window.location.port+"/baoliang/editfortableno?"+"acnum="+acnum+"&boss="+boss+"&phone="+phone+"&goods="+goods+"&start="+start+"&destination="+destination+"&weight="+weight);
 }	
 
-function editfortableyes(acnum,boss,phone,goods,start,destination,weight,car,drivernum)
+function editfortableyes(acnum,boss,phone,goods,start,destination,weight,car,drivernum,longitudestart,latitudestart,longitudedestination,latitudedestination)
 {
-	
-	window.location.href="http://"+window.location.hostname+":"+window.location.port+"/baoliang/editforableyes?"+"acnum="+acnum+"&boss="+boss+"&phone="+phone+"&goods="+goods+"&start="+start+"&destination="+destination+"&weight="+weight+"&car="+car+"&drivernum="+drivernum;
+	alert("http://"+window.location.hostname+":"+window.location.port+"/baoliang/editforableyes?"+"acnum="+acnum+"&boss="+boss+"&phone="+phone+"&goods="+goods+"&start="+start+"&destination="+destination+"&weight="+weight+"&car="+car+"&drivernum="+drivernum+"&longitudestart="+longitudestart+"&latitudestart="+latitudestart+"&longitudedestination="+longitudedestination+"&latitudedestination="+latitudedestination);
+	window.location.href="http://"+window.location.hostname+":"+window.location.port+"/baoliang/editforableyes?"+"acnum="+acnum+"&boss="+boss+"&phone="+phone+"&goods="+goods+"&start="+start+"&destination="+destination+"&weight="+weight+"&car="+car+"&drivernum="+drivernum+"&longitudestart="+longitudestart+"&latitudestart="+latitudestart+"&longitudedestination="+longitudedestination+"&latitudedestination="+latitudedestination;
 }
 
 function preview()
@@ -264,10 +264,14 @@ function next()
 function commitapplication()
 {
 	var parm = $("#formtable").serialize();
+	var longitudestart=document.getElementById("longitudestart").innerHTML;
+	var latitudestart=document.getElementById("latitudestart").innerHTML;
+	var longitudedestination=document.getElementById("longitudedestination").innerHTML;
+	var latitudedestination=document.getElementById("latitudedestination").innerHTML;
 	$.ajax({
 		type:"post",
 		url:"commitapplication",
-		data:parm,
+		data:parm+"&longitudestart="+longitudestart+"&latitudestart="+latitudestart+"&longitudedestination="+longitudedestination+"&latitudedestination="+latitudedestination,
 		dataType:"json",
 		success:function(data)
 		{
@@ -373,3 +377,20 @@ function searchbyacnum(flag)
 		
 	});
 }
+
+
+
+function openwin(index)
+{
+	switch(index)
+	{
+	case 1:
+	var popup_url="http://"+window.location.hostname+":"+window.location.port+"/baoliang/Popwindow/mapforstart.jsp";
+	window.open(popup_url,'newwindow','width='+500+',height='+350+',top='+100+',left='+300+',toolbar=no,menubar=no,scrollbars=yes,resizable=no,location=no,status=no');
+	break;
+	case 2:
+		var popup_url="http://"+window.location.hostname+":"+window.location.port+"/baoliang/Popwindow/mapfordestination.jsp";
+		window.open(popup_url,'newwindow','width='+500+',height='+350+',top='+100+',left='+300+',toolbar=no,menubar=no,scrollbars=yes,resizable=no,location=no,status=no');
+		break;
+	}
+	}

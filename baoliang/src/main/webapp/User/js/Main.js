@@ -23,10 +23,15 @@ function commitapplication()
 	if(verify())
 {
 	var parm = $("#tableleft").serialize();
+	var longitudestart=document.getElementById("longitudestart").innerHTML;
+	var latitudestart=document.getElementById("latitudestart").innerHTML;
+	var longitudedestination=document.getElementById("longitudedestination").innerHTML;
+	var latitudedestination=document.getElementById("latitudedestination").innerHTML;
+	
 	$.ajax({
 		type:"post",
 		url:"commitapplication",
-		data:parm,
+		data:parm+"&longitudestart="+longitudestart+"&latitudestart="+latitudestart+"&longitudedestination="+longitudedestination+"&latitudedestination="+latitudedestination,
 		dataType:"json",
 		success:function(data)
 		{

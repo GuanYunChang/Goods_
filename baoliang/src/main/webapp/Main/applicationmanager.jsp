@@ -63,12 +63,16 @@
   		
   		<div class="form-group">
     		<label >始发地</label>
-   			 <input name="start"  type="text" class="form-control" id="" placeholder="始发地">
+   			 <input name="start"  id="start" type="text" class="form-control" id="" placeholder="始发地" readonly="readonly">
+   			 经度:<span id="longitudestart"></span>纬度:<span id="latitudestart"></span>
+   			 <input type="button" onclick="openwin(1)" value="打开地图"/>
   		</div>
   		
   		<div class="form-group">
     		<label >目的地</label>
-   			 <input name="destination"  type="text" class="form-control" id="" placeholder="目的地">
+   			 <input name="destination" id="destination" type="text" class="form-control" id="" placeholder="目的地" readonly="readonly">
+   			  经度:<span id="longitudedestination"></span>纬度:<span id="latitudedestination"></span>
+   			 <input type="button" onclick="openwin(2)" value="打开地图"/>
   		</div>
   		<div class="form-group">
     		<label >重量</label>
