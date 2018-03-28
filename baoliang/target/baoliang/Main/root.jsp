@@ -39,10 +39,10 @@
  	 <div class="row maincontain">
   	 		<div class="col-xs-2 left">
   	 			<ul class="nav nav-pills nav-stacked sta">
-  					 <li role="presentation" onclick="selectFunc(0)" class="active"><a href="#">Home</a></li>
- 					 <li role="presentation" onclick="rootselectFunc(1)"><a href="#">管理员管理</a></li>
-  					 <li role="presentation" onclick="rootselectFunc(2)"><a href="#">订单管理</a></li>
-  					 <li role="presentation" onclick="rootselectFunc(3)"><a href="#">分配订单</a></li>
+  					 <li role="presentation" onclick="selectFunc(0)" class="active"><a class="links" href="#">Home</a></li>
+ 					 <li role="presentation" onclick="rootselectFunc(1)"><a class="links" href="#">管理员管理</a></li>
+  					 <li role="presentation" onclick="rootselectFunc(2)"><a class="links" href="#">订单管理</a></li>
+  					 <li role="presentation" onclick="rootselectFunc(3)"><a class="links" href="#">分配订单</a></li>
 				</ul>
   	 		</div>
   			<div class="col-xs-10  right">

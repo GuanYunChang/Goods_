@@ -50,6 +50,10 @@
 	<input type="text" id="goods" name="goods" class="form-control"/>
 	</div>
 	<div class="form-group">
+	<label class="la">接货人</label>
+	<input type="text" id="receiver" name="receiver" class="form-control"/>
+	</div>
+	<div class="form-group">
 	<label class="la">起始点</label>
 	<input type="text" id="start" name="start" class="form-control" onclick="openstart()" readonly="readonly"/>
 	 经度:<span id="longitudestart"></span>纬度:<span id="latitudestart"></span>
@@ -62,7 +66,7 @@
 	<input type="button" onclick="openwin(2)" value="打开地图"/>
 	</div>
 	<div class="form-group">
-	<label class="la">重量</label>
+	<label class="la">重量(吨)</label>
 	<input type="text" id="weight" name="weight" class="form-control" onclick="opendestination()"/>
 	</div>
 	<div class="form-group">

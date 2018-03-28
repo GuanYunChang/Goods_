@@ -13,10 +13,10 @@ import com.baoliang.Tools.produceacnum;
 
 public class ApplicationDaoImp extends JdbcDaoSupport implements ApplicationDao {
 
-	public void save( String boss, String phone, String goods, String start, String destination,String statue,String weight,String longstart,String latistart,String longdes,String latides) {
+	public void save( String boss, String phone, String goods, String start, String destination,String statue,String weight,String longstart,String latistart,String longdes,String latides,String receiver) {
 		
 		System.out.println(latistart+"========================");
-		this.getJdbcTemplate().update("insert into  application(acnum,boss,phone,goods,start,destination,statue,weight,car,drivernum,lat,longt,latdes,longdes) values(?,?,?,?,?,?,?,?,' ',' ',?,?,?,?)",new Object[]{produceacnum.getacnum(),boss,phone,goods,start,destination,statue,Double.parseDouble(weight),latistart,longstart,latides,longdes});
+		this.getJdbcTemplate().update("insert into  application(acnum,boss,phone,goods,start,destination,statue,weight,car,drivernum,lat,longt,latdes,longdes,receiver) values(?,?,?,?,?,?,?,?,' ',' ',?,?,?,?,?)",new Object[]{produceacnum.getacnum(),boss,phone,goods,start,destination,statue,Double.parseDouble(weight),latistart,longstart,latides,longdes,receiver});
 		
 	}
 	public void lockapplication(String acnum)
@@ -27,7 +27,7 @@ public class ApplicationDaoImp extends JdbcDaoSupport implements ApplicationDao 
 	public void setdriverforapplication(String carnum,String drivernum,String acnum)
 	{
 		
-		System.out.println("绑定"+carnum+","+drivernum+","+acnum);
+		System.out.println("缁戝畾"+carnum+","+drivernum+","+acnum);
 		this.getJdbcTemplate().update("update application set statue=?,car=?,drivernum=? where acnum=?",new Object[] {"3",carnum,drivernum,acnum});
 		
 	}
@@ -40,7 +40,7 @@ public class ApplicationDaoImp extends JdbcDaoSupport implements ApplicationDao 
 		
 		this.getJdbcTemplate().update("update application set drivernum= ?,car=?,weight=?,statue=? where acnum=?",new Object[]{drivernum,car,weight,statue,acnum});
 	}
-	//此方法取消更改订单只能通过取消后重新添加
+	//姝ゆ柟娉曞彇娑堟洿鏀硅鍗曞彧鑳介�氳繃鍙栨秷鍚庨噸鏂版坊鍔�
 	public void update(String acnum, String boss, String phone, String goods, String start, String destination,String weight,String longstart,String latistart,String longdes,String latides) {
 		System.out.println(longstart+","+latistart+","+longstart+","+longdes);
 		this.getJdbcTemplate().update("update application set boss=?,phone=?,goods=?,start=?,destination=?,weight=?,longt=?,lat=?,longdes=?,latdes=? where acnum=?",new Object[]{boss,phone,goods,start,destination,weight,longstart,latistart,longdes,latides,acnum});
@@ -70,7 +70,7 @@ public class ApplicationDaoImp extends JdbcDaoSupport implements ApplicationDao 
 		
 	}
 	/**
-	 * 手机端获取司机正在做的任务
+	 * 鎵嬫満绔幏鍙栧徃鏈烘鍦ㄥ仛鐨勪换鍔�
 	 * @param drivernum
 	 * @return
 	 */
@@ -79,7 +79,7 @@ public class ApplicationDaoImp extends JdbcDaoSupport implements ApplicationDao 
 		return this.getJdbcTemplate().query("select * from application where statue='3' and drivernum=?", new Object[]{drivernum},new BeanPropertyRowMapper(Application.class));
 	}
 	/**
-	 * 设置用户正在完成的状态
+	 * 璁剧疆鐢ㄦ埛姝ｅ湪瀹屾垚鐨勭姸鎬�
 	 * @param acnum
 	 * @return
 	 */
@@ -87,7 +87,7 @@ public class ApplicationDaoImp extends JdbcDaoSupport implements ApplicationDao 
 	{
 		try {
 			this.getJdbcTemplate().update("update application set statue =? where acnum=?",new String[] {"2",acnum});
-			System.out.println("设置订单完成"+acnum);
+			System.out.println("璁剧疆璁㈠崟瀹屾垚"+acnum);
 		}catch(Exception e)
 		{
 			return false;
@@ -95,7 +95,7 @@ public class ApplicationDaoImp extends JdbcDaoSupport implements ApplicationDao 
 		return true;
 	}
 	/**
-	 * 手机端用户获取自己的已经完成订单
+	 * 鎵嬫満绔敤鎴疯幏鍙栬嚜宸辩殑宸茬粡瀹屾垚璁㈠崟
 	 * @return
 	 */
 	public List<Application> FindFinishedApBydrivernum(String drivernum)
@@ -126,7 +126,7 @@ public List<Application> findAllunlock(String statue) {
 	}
 	
 	
-	//以下用于用户获取数据信息
+	//浠ヤ笅鐢ㄤ簬鐢ㄦ埛鑾峰彇鏁版嵁淇℃伅
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<Application> FindApplicationByUserPhoneForFinishedApplication(String phone) {

@@ -5,6 +5,10 @@
 	background-color:#585858;
 	height:600px;
 }
+.links{
+	
+	color:white;
+}
 .sta >li{
 	
 	margin:10px;
@@ -57,4 +61,8 @@
 	height:600px;
 	border-bottom-color: white;
 	border-width: 0px;
+}
+.brand{
+	
+	color:white;
 }

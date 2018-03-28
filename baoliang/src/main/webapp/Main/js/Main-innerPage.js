@@ -138,7 +138,7 @@ function addtabledata(dataarray,tableindex,page)
         			+'<td>订单人</td>'
         			+'<td>订单人电话</td>'
         			+'<td>货物</td>'
-        			+'<td>重量</td>'
+        			+'<td>重量(吨)</td>'
         			+'<td>始发地</td><td>目的地</td></tr>';
 		
 		for(i=start;i<end;i++)
@@ -161,7 +161,7 @@ function addtabledata(dataarray,tableindex,page)
 			+'<td>姓名</td>'
 			+'<td>电话</td>'
 			+'<td>车号</td>'
-			+'<td>装载量</td>'
+			+'<td>装载量(吨)</td>'
 			+'</tr>';
 		for(i=start;i<end;i++)
 		{
@@ -183,7 +183,7 @@ function addtabledata(dataarray,tableindex,page)
  			+'<td>订单人</td>'
  			+'<td>订单人电话</td>'
  			+'<td>货物</td>'
- 			+'<td>重量</td>'
+ 			+'<td>重量(吨)</td>'
  			+'<td>始发地</td><td>目的地</td><td>司机编号</td><td>车牌</td></tr>';
 		 for(i=start;i<end;i++)
 		{

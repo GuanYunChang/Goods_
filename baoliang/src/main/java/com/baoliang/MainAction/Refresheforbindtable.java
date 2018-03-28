@@ -149,8 +149,9 @@ public class Refresheforbindtable  extends ActionSupport {
 		ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
 		ApplicationDaoImp apc= (ApplicationDaoImp) context.getBean("ApplicationDaoImp");
 		List objlist=apc.findAllunlock("1");
-		Integer sum=objlist.size();
-		Integer start=(getPagesum()-1)*getIndexup()+1;
+		
+		Integer sum=objlist.size();System.out.println("总数为"+sum);
+		Integer start=(getPagesum())*(getIndexup()-1)+1;
 		if(start<1)
 			start=1;
 		
@@ -162,8 +163,8 @@ public class Refresheforbindtable  extends ActionSupport {
 		}
 		if(end>sum&&start>end-getPagesum())
 			start=end-getPagesum();
-			objlist=objlist.subList(start, end);
-			System.out.println("start:"+start+",end:"+end);
+			objlist=objlist.subList(start-1, end-1);
+			System.out.println("start:"+(start-1)+",end:"+(end-1));
 		setDataup(jsontools.tojsonForNoArray(objlist,Application.class ));
 		return SUCCESS;
 		
@@ -179,9 +180,9 @@ public class Refresheforbindtable  extends ActionSupport {
 		task.setAcnum(getAcnum());
 		ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
 		ApplicationDaoImp apc= (ApplicationDaoImp) context.getBean("ApplicationDaoImp");
-		apc.lockapplication(getAcnum());//锁住订单
-		System.out.println(getAcnum()+"锁住");
-		selecttime.schedule(task, 60000);//300000 5分钟后解锁
+		apc.lockapplication(getAcnum());//锁定订单
+		System.out.println(getAcnum()+"已锁定");
+		selecttime.schedule(task, 60000);//300000 自动解锁
 		return SUCCESS;
 	}
 	

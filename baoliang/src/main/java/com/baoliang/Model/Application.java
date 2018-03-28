@@ -23,6 +23,15 @@ public class Application implements java.io.Serializable {
 	private String longt;
 	private String latdes;
 	private String longdes;
+	private String receiver;
+	public String getReceiver() {
+		return receiver;
+	}
+
+	public void setReceiver(String receiver) {
+		this.receiver = receiver;
+	}
+
 	public String getLat() {
 		return lat;
 	}
@@ -100,7 +109,7 @@ public class Application implements java.io.Serializable {
 	}
 
 	public Application(String acnum, String boss, String phone, String goods, String start, String destination,
-			String drivernum,String statue,double weight,String car) {
+			String drivernum,String statue,double weight,String car,String receiver) {
 		this.acnum = acnum;
 		this.boss = boss;
 		this.phone = phone;
@@ -112,6 +121,7 @@ public class Application implements java.io.Serializable {
 		this.statue=statue;
 		this.weight= weight;
 		this.car=car;
+		this.receiver=receiver;
 	}
 
 	public String getAcnum() {

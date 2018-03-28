@@ -23,7 +23,7 @@
 		<td>目的地</td>
 		<td>司机编号</td>
 		<td>车牌号</td>
-		<td>重量</td>
+		<td>重量(吨)</td>
 	</tr>
 </table>
 <input type="button" value="上一页" onclick="preview()">
@@ -37,7 +37,7 @@
 		<td>姓名</td>
 		<td>电话</td>
 		<td>车号</td>
-		<td>装载量</td>
+		<td>装载量(吨)</td>
 		<td>选择</td>
 	</tr>
 </table>

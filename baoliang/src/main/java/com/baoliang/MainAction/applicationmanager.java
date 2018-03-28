@@ -18,7 +18,13 @@ public class applicationmanager extends ActionSupport {
 	private String latitudestart ;
 	private String longitudedestination;
 	private String latitudedestination;
-	
+	private String receiver;
+	public String getReceiver() {
+		return receiver;
+	}
+	public void setReceiver(String receiver) {
+		this.receiver = receiver;
+	}
 	public String getLatitudedestination() {
 		return latitudedestination;
 	}
@@ -124,7 +130,7 @@ public class applicationmanager extends ActionSupport {
 	}
 	
 	/**
-	 * ÁºñËæëËÆ¢ÂçïÁî≥ËØ∑
+	 * ±‡º≠∂©µ•
 	 * @return
 	 */
 	public String editforapplication1()
@@ -164,7 +170,7 @@ public class applicationmanager extends ActionSupport {
 	{
 		ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
 		ApplicationDaoImp ap= (ApplicationDaoImp) context.getBean("ApplicationDaoImp");
-		ap.save(boss, phone, goods, start, destination, "1", weight,getLongitudestart(),getLatitudestart(),getLongitudedestination(),getLatitudedestination());
+		ap.save(boss, phone, goods, start, destination, "1", weight,getLongitudestart(),getLatitudestart(),getLongitudedestination(),getLatitudedestination(),getReceiver());
 		return SUCCESS;
 	}
 	

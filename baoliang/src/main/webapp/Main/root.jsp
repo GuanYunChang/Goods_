@@ -25,7 +25,7 @@
  			 
  			 <div class="container-fluid">
  			 <row>
-   		 		<div class="col-xs-2 "><a class="navbar-brand" href="#">物流配送系统</a></div>
+   		 		<div class="col-xs-2 "><a class="navbar-brand brand" href="#">物流配送系统</a></div>
    		 		<button class="btn btn-primary btnlog" type="submit" onclick="logout()">退出</button>
   				<span id="username" class="label label-info loginnames"><s:property value="username" /> </span>
   				</row>
@@ -39,11 +39,11 @@
  	 <div class="row maincontain">
   	 		<div class="col-xs-2 left">
   	 			<ul class="nav nav-pills nav-stacked sta">
-  					 <li role="presentation" onclick="selectFunc(0)" class="active"><a href="#">Home</a></li>
- 					 <li role="presentation" onclick="rootselectFunc(1)"><a href="#">管理员管理</a></li>
-  					 <li role="presentation" onclick="rootselectFunc(2)"><a href="#">订单管理</a></li>
-  					 <li role="presentation" onclick="rootselectFunc(3)"><a href="#">分配订单</a></li>
-  					 <li role="presentation" onclick="rootselectFunc(4)"><a href="#">司机管理</a></li>
+  					 <li role="presentation" onclick="selectFunc(0)" ><a class="links" href="#">主页</a></li>
+ 					 <li role="presentation" onclick="rootselectFunc(1)"><a  class="links" href="#">管理员管理</a></li>
+  					 <li role="presentation" onclick="rootselectFunc(2)"><a  class="links" href="#">订单管理</a></li>
+  					 <li role="presentation" onclick="rootselectFunc(3)"><a  class="links" href="#">分配订单</a></li>
+  					 <li role="presentation" onclick="rootselectFunc(4)"><a  class="links" href="#">司机管理</a></li>
 				</ul>
   	 		</div>
   			<div class="col-xs-10  right">
