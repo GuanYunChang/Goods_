@@ -139,7 +139,7 @@ function addtabledata(dataarray,tableindex,page)
         			+'<td>订单人电话</td>'
         			+'<td>货物</td>'
         			+'<td>重量(吨)</td>'
-        			+'<td>始发地</td><td>目的地</td></tr>';
+        			+'<td>始发地</td><td>目的地</td><td>接货人</td></tr>';
 		
 		for(i=start;i<end;i++)
 			{
@@ -150,7 +150,8 @@ function addtabledata(dataarray,tableindex,page)
 				+'<td>'+dataarray[i].goods+'</td>'
 				+'<td>'+dataarray[i].weight+'</td>'
 				+'<td>'+dataarray[i].start+'</td>'
-				+'<td>'+dataarray[i].destination+'</td></tr>';
+				+'<td>'+dataarray[i].destination+'</td>'
+				+'<td>'+dataarray[i].receiver+'</td></tr>';
 				
 			}
 		document.getElementById("pageshow").innerHTML=table1count;
@@ -184,7 +185,7 @@ function addtabledata(dataarray,tableindex,page)
  			+'<td>订单人电话</td>'
  			+'<td>货物</td>'
  			+'<td>重量(吨)</td>'
- 			+'<td>始发地</td><td>目的地</td><td>司机编号</td><td>车牌</td></tr>';
+ 			+'<td>始发地</td><td>目的地</td><td>司机编号</td><td>车牌</td><td>接货人</td></tr>';
 		 for(i=start;i<end;i++)
 		{
 		
@@ -197,6 +198,7 @@ function addtabledata(dataarray,tableindex,page)
 			+'<td>'+dataarray[i].destination+'</td>'
 			+'<td>'+dataarray[i].drivernum+'</td>'
 			+'<td>'+dataarray[i].car+'</td>'
+			+'<td>'+dataarray[i].receiver+'</td>'
 			+'</tr>';
 			
 		}

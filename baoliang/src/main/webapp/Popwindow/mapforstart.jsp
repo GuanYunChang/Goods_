@@ -50,6 +50,36 @@ AMap.plugin(['AMap.ToolBar', 'AMap.Scale', 'AMap.MapType','AMap.Geocoder','AMap.
     var map = new AMap.Map("container", {
         resizeEnable: true
     });
+var flag=false;
+var counts=1;
+var marker;
+    //获取参数
+	function getQueryVariable(variable)
+	{
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+	}
+    
+	if(getQueryVariable("flag")=="ori")
+		{
+		
+		var longitudestart=window.opener.document.getElementById("longitudestart").innerHTML
+		var latitudestart=window.opener.document.getElementById("latitudestart").innerHTML
+			marker = new AMap.Marker({  //加点
+   	 		map: map,
+     	 	position: [longitudestart,latitudestart]
+ 			 });counts++;
+		
+		}
+    
+    
+    
+    
     var xylocation;
     //为地图注册click事件获取鼠标点击出的经纬度坐标
     var clickEventListener = map.on('click', function(e) {
@@ -74,9 +104,7 @@ AMap.plugin(['AMap.ToolBar', 'AMap.Scale', 'AMap.MapType','AMap.Geocoder','AMap.
         }
 
     }
-    var flag=false;
-    var counts=1;
-    var marker;
+    
  //逆地理编码
   function regeocoder() {  //逆地理编码
 	 

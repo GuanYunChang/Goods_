@@ -75,6 +75,33 @@ AMap.plugin(['AMap.ToolBar', 'AMap.Scale', 'AMap.MapType','AMap.Geocoder','AMap.
     var flag=false;
     var counts=1;
     var marker;
+    
+    
+    
+    //获取参数
+	function getQueryVariable(variable)
+	{
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+	}
+    
+	if(getQueryVariable("flag")=="ori")
+		{
+		var longitudedestination=window.opener.document.getElementById("longitudedestination").innerHTML
+		var latitudedestination=window.opener.document.getElementById("latitudedestination").innerHTML
+			marker = new AMap.Marker({  //加点
+   	 		map: map,
+     	 	position: [longitudedestination,latitudedestination]
+ 			 });counts++;
+		
+		}
+    
+    
  //逆地理编码
   function regeocoder() {  //逆地理编码
 	 

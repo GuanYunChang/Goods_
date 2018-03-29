@@ -44,6 +44,7 @@
         			<td>重量</td>
         			<td>始发地</td>
         			<td>目的地</td>
+        			<td>接货人</td>
         		</tr>
 			</table>
 			<table id="table2" class="table table-hover">
@@ -66,6 +67,7 @@
         			<td>目的地</td>
         			<td>司机</td>
         			<td>车牌</td>
+        			<td>接货人</td>
         		</tr>
 			</table>
 	<div class="pagebtn">
