@@ -76,6 +76,7 @@ public class Logforward extends ActionSupport {
 			return ERROR;
 		}
 		
+		
 		ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
 		bossDaoImp bo= (bossDaoImp) context.getBean("bossDaoImp");
 		setName(bo.slectname(getUsername()));

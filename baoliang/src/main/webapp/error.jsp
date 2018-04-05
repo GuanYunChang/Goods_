@@ -7,6 +7,6 @@
 <title>错误</title>
 </head>
 <body>
-	<h1>错误：可能是系统发生了错误或者您未登录,请发送email到2941242616@qq.com</h1>
+	<h1>错误：可能是系统发生了错误或者您未登录,请发送email到zblbaoliang.yeah.net,我们会帮你解决</h1>
 </body>
 </html>

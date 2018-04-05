@@ -66,7 +66,7 @@ public class Login extends ActionSupport {
 			HttpServletRequest request = ServletActionContext.getRequest(); 
 			HttpSession session = request.getSession(); 
 			ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
-			System.out.println("现在登录的角色是"+getCharacter());
+			System.out.println("将要登录的角色为"+getCharacter());
 			switch(Integer.parseInt(getCharacter()))
 			{
 			case 1: 
@@ -76,36 +76,44 @@ public class Login extends ActionSupport {
 				{
 					
 					flag=0;
-					System.out.println("登录失败========"+getName()+"========="+getPassword());
+					System.out.println("登录========"+getName()+"========="+getPassword());
 					return ERROR;
 				}
-				
+				flag=1;
 				break;
 			case 2:
 				bossDaoImp bo= (bossDaoImp) context.getBean("bossDaoImp");
+				
 				
 				if(bo.confirm(getName(), getPassword())==false)
 				{
 					
 					flag=0;
-					System.out.println("登录失败========"+getName()+"========="+getPassword());
+					System.out.println("鐧诲綍澶辫触========"+getName()+"========="+getPassword());
 					return ERROR;
-				}break;
-				
+				} else
+				{
+					flag=bo.getVerifyOrNO(getName());//flag=2：用户仅注册并没有提交申请验证，
+					
+					//flag=3:用户提交了申请验证正在等待申请结果，flag=1:表示已经是通过验证的合法用户
+					System.out.println("当前用户的状态为"+flag);
+				}
+				break;
 			case 3:
 				rootManagerDaoImp rm= (rootManagerDaoImp) context.getBean("rootManagerDaoImp");
 				if(rm.confirm(getName(), getPassword())==false)
 				{
 					
 					flag=0;
-					System.out.println("root用户登录失败");
+					System.out.println("root鐢ㄦ埛鐧诲綍澶辫触");
 					return ERROR;
 				}
+				flag=1;
 			
 			}
 			
-			System.out.println("登录成功"+getName()+","+getPassword()+","+getCharacter());
-			flag=1;
+			System.out.println("用户名字"+getName()+","+getPassword()+","+getCharacter());
+			
 			session.setAttribute("username", getName());
 			session.setAttribute("character", getCharacter());
 			return SUCCESS;
@@ -123,7 +131,7 @@ public class Login extends ActionSupport {
 	}
 	
 	/**
-	 * 退出登录
+	 * 閫�鍑虹櫥褰�
 	 * @return
 	 */
 	public String Logout()
@@ -134,11 +142,11 @@ public class Login extends ActionSupport {
 			
 			session.removeAttribute("username");
 			session.removeAttribute("character");
-			System.out.println("退出成功");
+			System.out.println("閫�鍑烘垚鍔�");
 			
 		}catch(Exception e) {
 			
-			System.out.println("退出失败");
+			System.out.println("閫�鍑哄け璐�");
 			return ERROR;
 		}
 		return SUCCESS;

@@ -62,6 +62,16 @@
   		</div>
   		
   		<div class="form-group">
+    		<label >接货人</label>
+   			 <input name="receiver"  type="text" class="form-control" id="" placeholder="接货人" >
+  		</div>
+  		
+  		<div class="form-group">
+    		<label >接货人电话</label>
+   			 <input name="recephone"  type="text" class="form-control" id="" placeholder="接货人电话" >
+  		</div>
+  		
+  		<div class="form-group">
     		<label >始发地</label>
    			 <input name="start"  id="start" type="text" class="form-control" id="" placeholder="始发地" readonly="readonly">
    			 经度:<span id="longitudestart"></span>纬度:<span id="latitudestart"></span>
@@ -99,7 +109,7 @@
 			<td>订单人电话</td>
 			<td>货物</td>
 			<td>重量</td>
-			<td>始发地</td><td>目的地</td>
+			<td>始发地</td><td>目的地</td><td>接货人</td><td>接货人电话</td>
 			<td>司机</td>
 			<td>车牌</td>
 			<td>状态</td>

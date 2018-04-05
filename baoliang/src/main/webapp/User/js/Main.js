@@ -57,7 +57,9 @@ function verify()
 	var flag4=document.getElementById("start").value;
 	var flag5=document.getElementById("destination").value;
 	var flag6=document.getElementById("weight").value;
-	if(flag1.length==0||flag2.length==0||flag3.length==0||flag4.length==0||flag5.length==0||flag6.length==0)
+	var flag7=document.getElementById("receiver").value;
+	var flag8=document.getElementById("recephone").value;
+	if(flag1.length==0||flag2.length==0||flag3.length==0||flag4.length==0||flag5.length==0||flag6.length==0||flag7.length==0||flag8.length==0)
 		{
 		
 			alert("信息不全");
@@ -88,32 +90,45 @@ function select(index)
 	switch(index)
 	{
 		case 1:
-			$('#tableleft').show();
-			$('#tablemidle').hide();
-			$('#tableright').hide();
-			$('#tableac').hide();
+			$('#form1').show();
+			$('#form2').hide();
+			$('#form3').hide();
+			$('#form4').hide();
+			//$('#form5').hide();
 			break;
 		case 2:
-			$('#tableleft').hide();
-			$('#tablemidle').show();
-			$('#tableright').hide();
-			$('#tableac').hide();
+			$('#form1').hide();
+			$('#form2').show();
+			$('#form3').hide();
+			$('#form4').hide();
+			//$('#form5').hide();
 			 adddata(2);
 			break;
 		case 3:
-			$('#tableleft').hide();
-			$('#tablemidle').hide();
-			$('#tableright').show();
-			$('#tableac').hide();
+			$('#form1').hide();
+			$('#form2').hide();
+			$('#form3').show();
+			$('#form4').hide();
+			$('#form5').hide();
 			 adddata(3);
 			break;
 		case 4:
-			$('#tableleft').hide();
-			$('#tablemidle').hide();
-			$('#tableright').hide();
-			$('#tableac').show();
+			$('#form1').hide();
+			$('#form2').hide();
+			$('#form3').hide();
+			$('#form4').show();
+			//$('#form5').hide();
 			 adddata(4);
 			break;
+		/*case 5:
+			$('#form1').hide();
+			$('#form2').hide();
+			$('#form3').hide();
+			$('#form4').hide();
+			//$('#form5').show();
+			 
+			break;*///个人信息暂时不用
+		
 	}
 }
 
@@ -252,10 +267,10 @@ function deleted(acnum)
 		{
 			
 			
-			 	$('#tableleft').hide();
-				$('#tablemidle').show();
-				$('#tableright').hide();
-				$('#tableac').hide();
+			 	$('#form1').hide();
+				$('#form2').show();
+				$('#form3').hide();
+				$('#form4').hide();
 				 adddata(2);
 				 alert("删除成功");
 			 

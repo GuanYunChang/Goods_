@@ -49,6 +49,7 @@
 <!-- 发送短信 -->
 		<action name="Sendmessage" class="com.baoliang.Login.Login" method="sendmessage">
 			 <result name="success" type="json"></result>
+			 <result name="noverify"></result>
 		</action>
 <!-- 注册发单人 -->
 		<action name="Register" class="com.baoliang.Login.Register" method="Register">
@@ -183,4 +184,16 @@
 	
 	</package>
 
+
+<!-- 文件上传 -->
+	<package name="com.baoliang.FileAction.uploadinfo" namespace="/" extends="json-default">
+    
+        <action name="uploadcardfile" class="com.baoliang.FileAction.uploadinfo">
+        <!-- 通过param参数设置保存目录的路径 -->
+        <param name="savePath">/upload</param>
+           <result name="success"></result>
+           <result name="error">/error.jsp</result>
+        </action>
+        
+    </package>
 	</struts>

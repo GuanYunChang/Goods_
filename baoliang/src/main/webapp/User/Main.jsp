@@ -32,10 +32,13 @@
   <div class="btn-group" role="group">
     <button type="button" class="btn btn-primary" onclick="select(4)">已分配订单</button>
   </div>
+  <!-- 修改个人信息暂时不用 <div class="btn-group" role="group">
+    <button type="button" class="btn btn-primary" onclick="select(5)">修改个人信息</button>
+  </div>-->
 </div>
 </div>
 <div class="row">
-
+<div id="form1">
 <form class="tableleft" id="tableleft">
   <div class="form-group">
 	<label class="la">姓名</label>
@@ -52,6 +55,10 @@
 	<div class="form-group">
 	<label class="la">接货人</label>
 	<input type="text" id="receiver" name="receiver" class="form-control"/>
+	</div>
+	<div class="form-group">
+	<label class="la">接货人电话</label>
+	<input type="text" id="recephone" name="recephone" class="form-control"/>
 	</div>
 	<div class="form-group">
 	<label class="la">起始点</label>
@@ -73,10 +80,24 @@
 	<input type="button" value="提交" onclick="commitapplication()" class="btn btn-primary form-control"/>
 	</div>
 </form>
-
+</div>
+<div id="form2">
 <table id="tablemidle" class="table table-hover tablemidle"></table>
+</div>
+<div id="form3">
 <table id="tableright" class="table table-hover tableright"></table>
+</div>
+<div id="form4">
 <table id="tableac" class="table table-hover tableac"></table>
+</div>
+<!-- 修改个人信息暂时不用 <div id="form5">
+ <form class="personinfo">
+	 <div class="form-group">
+		<label class="la">个人姓名</label>
+		<input type="text" id="boss" name="boss" class="form-control" value='<s:property value="name"/>' readonly="readonly"/>
+	</div>
+ </form>
+</div>-->
 </div>
 <script type="text/javascript" src="User/js/Main.js"></script>
 </body>

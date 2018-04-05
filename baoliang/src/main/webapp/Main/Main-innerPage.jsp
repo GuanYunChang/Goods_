@@ -45,6 +45,7 @@
         			<td>始发地</td>
         			<td>目的地</td>
         			<td>接货人</td>
+        			<td>接货人电话</td>
         		</tr>
 			</table>
 			<table id="table2" class="table table-hover">
@@ -68,6 +69,7 @@
         			<td>司机</td>
         			<td>车牌</td>
         			<td>接货人</td>
+        			<td>接货人电话</td>
         		</tr>
 			</table>
 	<div class="pagebtn">

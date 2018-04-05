@@ -18,6 +18,40 @@ public class bossDaoImp extends JdbcDaoSupport implements bossDao{
 		this.getJdbcTemplate().update("insert into boss(bossphone,bosspass,bossname) values(?,?,?);", new Object[] {phone,pass,name});
 		
 	}
+	/**
+	 * 验证是否是申请通过的用户返回用户的状态
+	 * @param phone
+	 * @return
+	 */
+	public Integer getVerifyOrNO(String phone)
+	{
+		Integer res=Integer.parseInt(this.getJdbcTemplate().queryForObject("select verify from boss where bossphone=?",new Object[] {phone},String.class));
+		
+		if(res.equals(1))
+		{
+			System.out.println("已经验证过信息与身份");
+			return 1;
+		}
+		else if(res.equals(2))
+		{
+			System.out.println("尚未验证信息与身份");
+			return 2;
+		}else
+		{
+			
+			System.out.println("用户正在等待验证结果");
+			return 3;
+		}
+	}
+	
+	/***
+	 * 更新用户的申请状态
+	 */
+	public void updateUserStatue(String statue,String phone)
+	{
+		
+		this.getJdbcTemplate().update("update boss set verify=? where bossphone=?",new Object[] {statue,phone});
+	}
 	public String slectname(String phone)
 	{
 		

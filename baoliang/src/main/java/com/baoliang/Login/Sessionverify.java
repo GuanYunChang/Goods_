@@ -19,14 +19,14 @@ public class Sessionverify {
 		try {
 			if(session.getAttribute("username").equals(null))
 				{
-				System.out.println("楠岃瘉澶辫触");
+				System.out.println("暂存信息验证失败");
 				return false;
 				}
 			else
 				return true;
 		}catch(Exception e) {
 			
-			System.out.println("楠岃瘉澶辫触");
+			System.out.println("暂存信息验证成功");
 			return false;
 		}
 	}

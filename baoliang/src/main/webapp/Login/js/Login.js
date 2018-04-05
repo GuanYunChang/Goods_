@@ -19,8 +19,19 @@ $('#submitbtn').click(function() {
                     dataType:"json",
             
                     success : function(data) {
-                        if(data.flag==1)
+                    	alert(data.flag);
+                    	if(data.flag==2)//flag=2：用户仅注册并没有提交申请验证，flag=3:用户提交了申请验证正在等待申请结果，flag=1:表示已经是通过验证的合法用户
+                        	
+                        	
+                        	{window.location.href="http://"+window.location.hostname+":"+window.location.port+"/baoliang/User/verify.jsp";}
+                    	else if(data.flag==3)
+                    		{
+                    			
+                    		window.location.href="http://"+window.location.hostname+":"+window.location.port+"/baoliang/User/wait.jsp";
+                    		}
+                    		else if(data.flag==1)
                         	{
+                        	
                         		var tag;
                         		if(c1.checked==true)
                         			tag=1;
@@ -41,12 +52,13 @@ $('#submitbtn').click(function() {
                         		}
                         		
                         	}
-                        else 
-                        	 alert("登录失败");
+                   
+                        	else
+                        	 alert("信息验证失败，登录失败");
                     },
 
                     error : function() {
-                        alert("登录失败");
+                        alert("信息验证失败，登录失败");
                     }
                 });
             });
