@@ -1,18 +1,28 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2018-1-10 7:42:27 by Hibernate Tools 3.5.0.Final -->
-<hibernate-mapping>
-    <class name="com.baoliang.Model.boss" table="boss">
-        <id name="bossphone" type="java.lang.String">
-            <column name="bossphone" />
-            <generator class="assigned" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2018-4-6 21:51:29 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="goods" dynamic-insert="false" dynamic-update="false" mutable="true" name="bakess.Boss" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="boss">
+        <id name="bossphone" type="string">
+            <column name="bossphone"/>
+            <generator class="assigned"/>
         </id>
-        <property name="bosspass" type="java.lang.String">
-            <column name="bosspass" />
+        <property generated="never" lazy="false" name="bosspass" optimistic-lock="true" type="string" unique="false">
+            <column name="bosspass"/>
         </property>
-        <property name="bossname" type="java.lang.String">
-            <column name="bossname" />
+        <property generated="never" lazy="false" name="bossname" optimistic-lock="true" type="string" unique="false">
+            <column name="bossname"/>
+        </property>
+        <property generated="never" lazy="false" name="verify" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="verify"/>
+        </property>
+        <property generated="never" lazy="false" name="carda" optimistic-lock="true" type="string" unique="false">
+            <column name="carda" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="cardb" optimistic-lock="true" type="string" unique="false">
+            <column name="cardb" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="description" optimistic-lock="true" type="string" unique="false">
+            <column name="description" not-null="true"/>
         </property>
     </class>
 </hibernate-mapping>

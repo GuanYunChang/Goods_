@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
@@ -52,6 +53,32 @@ public class bossDaoImp extends JdbcDaoSupport implements bossDao{
 		
 		this.getJdbcTemplate().update("update boss set verify=? where bossphone=?",new Object[] {statue,phone});
 	}
+	/**
+	 * 更新审核结果
+	 * @param phone
+	 * @param description
+	 * @param statue
+	 */
+	public void updateShenheRes(String phone,String description,int statue)
+	{
+		this.getJdbcTemplate().update("update boss set verify=?,description=? where bossphone=?",new Object[] {statue,description,phone});
+	}
+	/**
+	 * 修改用户的身份证图片路径
+	 * @param path
+	 * @param flag 0:正面 1:反面
+	 * @param phone
+	 */
+	public void updateUserPic(String path,int flag,String phone)
+	{
+		switch(flag)
+		{
+		case 0:this.getJdbcTemplate().update("update boss set carda=? where bossphone=?",new Object[] {path,phone});
+				break;
+		case 1:this.getJdbcTemplate().update("update boss set cardb=? where bossphone=?",new Object[] {path,phone});
+				break;
+		}
+	}
 	public String slectname(String phone)
 	{
 		
@@ -69,11 +96,26 @@ public class bossDaoImp extends JdbcDaoSupport implements bossDao{
 		
 	}
 
+	
 	public boss findByphoneandpass(String phone) {
 		return this.getJdbcTemplate().queryForObject("select * from boss where bossphone= ?",new Object[] {phone}, boss.class);
 		
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public List<boss> finduserbyphone(String phone) {
+		
+		return this.getJdbcTemplate().query("select * from boss where bossphone=?", new Object[]{phone},new BeanPropertyRowMapper(boss.class));
+		
+	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public List<boss> findalluser(int statue) {
+		
+		return this.getJdbcTemplate().query("select * from boss where verify=?", new Object[]{statue},new BeanPropertyRowMapper(boss.class));
+		
+	}
+	
 	public List<boss> findAll() {
 		return this.getJdbcTemplate().queryForList("select * from boss",boss.class);
 	}

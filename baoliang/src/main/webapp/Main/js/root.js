@@ -14,5 +14,8 @@ function rootselectFunc(index)
 		case 4:
 			document.getElementById("frameK").src="DriverManager/DriverMa.jsp";
 			break;
+		case 5:
+			document.getElementById("frameK").src="Main/shenhe.jsp";
+			break;
 	}
 }

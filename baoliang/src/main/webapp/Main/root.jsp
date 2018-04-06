@@ -44,6 +44,7 @@
   					 <li role="presentation" onclick="rootselectFunc(2)"><a  class="links" href="#">订单管理</a></li>
   					 <li role="presentation" onclick="rootselectFunc(3)"><a  class="links" href="#">分配订单</a></li>
   					 <li role="presentation" onclick="rootselectFunc(4)"><a  class="links" href="#">司机管理</a></li>
+					<li role="presentation" onclick="rootselectFunc(5)"><a  class="links" href="#">用户审核</a></li>
 				</ul>
   	 		</div>
   			<div class="col-xs-10  right">

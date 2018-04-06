@@ -27,7 +27,7 @@ $('#submitbtn').click(function() {
                     	else if(data.flag==3)
                     		{
                     			
-                    		window.location.href="http://"+window.location.hostname+":"+window.location.port+"/baoliang/User/wait.jsp";
+                    		window.location.href="http://"+window.location.hostname+":"+window.location.port+"/baoliang/User/wait.jsp?username="+userName;
                     		}
                     		else if(data.flag==1)
                         	{

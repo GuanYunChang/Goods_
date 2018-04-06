@@ -3,6 +3,7 @@ package com.baoliang.FileAction;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.util.Calendar;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -11,6 +12,7 @@ import org.apache.struts2.ServletActionContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.baoliang.Model.ManagerDaoImp;
 import com.baoliang.Model.bossDaoImp;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -61,26 +63,43 @@ public class uploadinfo extends ActionSupport {
     	try {
         byte[] buffer = new byte[1024];
         System.out.println(upload);
+        
+        
+        HttpServletRequest request = ServletActionContext.getRequest(); 
+		HttpSession session = request.getSession(); 
+		ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{ "applicationContext.xml"});
+		bossDaoImp bo= (bossDaoImp) context.getBean("bossDaoImp");
         for (int i = 0; i < upload.length; i++) {
         	
         	
         	
         	//
         	
-        	
+			
             FileInputStream fis = new FileInputStream(getUpload()[i]);
             
             String directory="/userpic";
             String target=ServletActionContext.getServletContext().getRealPath(directory);
-            
-            
-            FileOutputStream fos = new FileOutputStream(target + "\\"
-                    + this.getUploadFileName()[i]);
+            String xiangdui="userpic\\"+picname( this.getUploadFileName()[i]);
+            String finalpath=target + "\\"+picname( this.getUploadFileName()[i]);
+            FileOutputStream fos = new FileOutputStream(finalpath);
             int length = fis.read(buffer);
+            
+           
             while (length > 0) {
+            	
                 fos.write(buffer, 0, length);
                 length = fis.read(buffer);
             }
+            if(i==0)
+        	{
+        		bo.updateUserPic(xiangdui, 0, session.getAttribute("username").toString());
+        		
+        	}else
+        	{
+        		
+        		bo.updateUserPic(xiangdui, 1, session.getAttribute("username").toString());
+        	}
             fos.flush();
             fos.close();
             fis.close();
@@ -103,6 +122,22 @@ public class uploadinfo extends ActionSupport {
         return SUCCESS;
     }
 
+    public String picname(String picn)
+    {
+    	String[] temp=picn.split("\\.");
+    	String str="";
+		Calendar now = Calendar.getInstance(); 
+		str+=now.get(Calendar.YEAR);
+		str+=now.get(Calendar.MONTH);
+		str+=now.get(Calendar.DAY_OF_MONTH);
+		str+=now.get(Calendar.HOUR_OF_DAY);
+		str+=now.get(Calendar.MINUTE);
+		str+=now.getTimeInMillis();
+		str+=".";
+		str+=temp[1];
+		return str;
+    	
+    }
       public String getSavePath() {
          return ServletActionContext.getServletContext().getRealPath(savePath);
        }

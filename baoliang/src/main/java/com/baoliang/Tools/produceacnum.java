@@ -8,7 +8,7 @@ import java.util.Calendar;
 
 public class produceacnum {
 /**
- * è®¢å•å·æ˜¯ç”±æ—¥æœŸæ„æˆ;
+ * ²úÉú¶©µ¥µÄid
  * @return
  */
 	public static String getacnum()

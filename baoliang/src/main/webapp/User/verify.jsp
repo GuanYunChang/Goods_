@@ -13,16 +13,21 @@
 <title>身份验证</title>
 </head>
 <body>
-<div class="row navigator">
+<div class="row navigator" >
  <button type="button" class="btn btn-primary logout" onclick="logout()">退出</button>
 <span id="username" class="label label-default usernamelabel"><%=session.getAttribute("username")%></span>
 </div>
 <div class="verifyform">
  	<s:form action="../uploadcardfile" enctype="multipart/form-data" method="post">
-    	<s:textfield name="title" label="标题"/>
-    	<s:file name="upload" label="身份证正面"/><br/>
-    	<s:file name="upload" label="身份证反面"/><br/>
-   	 	<s:submit name="submit" value="上传文件"></s:submit>
+    	<div>
+    	<center><label class="formlabel">身份证的正面</label></center>
+    	<center><s:file name="upload"  class="fileinput" /></center>
+    	</div>
+    	<div>
+    	<center><label class="formlabel">身份证的反面</label></center>
+    	<center><s:file name="upload"  class="fileinput"/></center>
+    	</div>
+   	 	<center><s:submit name="submit"  class="subbtn" value="上传文件"></s:submit></center>
     </s:form>
 </div>
 <script type="text/javascript" src="User/js/verify.js"></script>

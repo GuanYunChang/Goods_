@@ -18,6 +18,8 @@
     <result name="success" type="json"></result>
     </action>
     
+   
+    
     </package>
     
     
@@ -191,9 +193,43 @@
         <action name="uploadcardfile" class="com.baoliang.FileAction.uploadinfo">
         <!-- 通过param参数设置保存目录的路径 -->
         <param name="savePath">/upload</param>
-           <result name="success"></result>
+           <result name="success">/User/wait.jsp</result>
            <result name="error">/error.jsp</result>
         </action>
         
     </package>
+    
+    <!-- 获取审核信息，提交信息 -->
+    <package name="com.baoliang.MainAction" namespace="/" extends="json-default">
+    <action name="getshenhe" class="com.baoliang.MainAction.Shenhe"  method="getshenheall">
+	<result name="success" type="json"></result>
+	</action>
+    
+    <action name="shenheres" class="com.baoliang.MainAction.Shenhe"  method="commitshenheres">
+	<result name="success" type="json"></result>
+	</action>
+	
+	
+	 <action name="getuserstatue" class="com.baoliang.MainAction.Shenhe"  method="getuserstatue">
+	<result name="success" type="json"></result>
+	</action>
+	
+	
+    </package>
+    
+    
+     <package name="com.baoliang" namespace="/" extends="struts-default">
+    <action name="shenheget" class="com.baoliang.MainAction.Shenhe"  method="getinfo">
+	<result name="success">/Main/Shenheshow.jsp</result>
+	<result name="error">/error.jsp</result>
+	</action>
+    
+    </package>
+    
+    <!-- 取消原来的样式 -->
+     <constant name="struts.ui.theme" value="simple" />  
+    <constant name="struts.ui.templateDir" value="template" />  
+    <constant name="struts.ui.templateSuffix" value="ftl" />  
+    
+    
 	</struts>
