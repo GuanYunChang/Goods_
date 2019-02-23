@@ -15,5 +15,5 @@
 ![订单管理](https://github.com/GuanYunChang/Goods_/blob/master/gitpic/4.png)
 ## 5.订单分配
 ![订单分配](https://github.com/GuanYunChang/Goods_/blob/master/gitpic/5.png)
-***再次声明这是我的毕设请不要抄袭（2019-2020），若有重复后果自负！！！！！！***
+
 
